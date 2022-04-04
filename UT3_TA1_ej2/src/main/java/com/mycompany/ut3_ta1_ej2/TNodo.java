@@ -7,6 +7,7 @@ package com.mycompany.ut3_ta1_ej2;
 /**
  *
  * @author PSARAVIA
+ * @param <T>
  */
 public class TNodo <T> {
 

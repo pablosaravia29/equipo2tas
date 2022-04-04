@@ -7,17 +7,17 @@ package com.mycompany.ut3_ta1_ej2;
 /**
  *
  * @author PSARAVIA
+ * @param <T>
  */
-public class TLista {
+public class TLista <T> {
 
-    private TNodo primero = null;
+    private TNodo<T> primero = null;
 
-    public TNodo getPrimero() {
+    public TNodo<T> getPrimero() {
         return this.primero;
     }
 
-    public void insertar(TNodo nodo) {
-        TNodo aux = primero;
+    public void insertar(TNodo<T> nodo) {
         if (esVacio()) {
             primero = nodo;
         } else {
@@ -26,7 +26,7 @@ public class TLista {
         }
     }
 
-    public void insertarAlFinal(TNodo nodo) {
+    public void insertarAlFinal(TNodo<T> nodo) {
         TNodo aux = primero;
         if (esVacio()) {
             primero = nodo;
@@ -43,8 +43,8 @@ public class TLista {
         return this.primero == null;
     }
 
-    public TNodo buscar(Comparable etiqueta) {
-        TNodo aux = primero;
+    public TNodo<T> buscar(Comparable etiqueta) {
+        TNodo<T> aux = primero;
         while (aux != null) {
             if (aux.getEtiqueta() == etiqueta) {
                 return aux;
@@ -54,7 +54,7 @@ public class TLista {
         return null;
     }
 
-    public void insertarOrdenado(TNodo nodo) {
+    public void insertarOrdenado(TNodo<T> nodo) {
         if (esVacio()) {
             insertar(nodo);
             return;
@@ -77,8 +77,6 @@ public class TLista {
         }
         if (actual.getEtiqueta().compareTo(nodo.getEtiqueta()) < 0) {
             actual.setSiguiente(nodo);
-            return;
         }
-        return;
     }
 }
