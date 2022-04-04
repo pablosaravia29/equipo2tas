@@ -1,4 +1,5 @@
-package ut3.ta2;
+package com.mycompany.ut3_ta1_ej2;
+
 
 import java.util.ArrayList;
 
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 
 public interface IAlmacen {
 	/**
-	 * Método encargado de agregar un producto al almacén.
+	 * Mï¿½todo encargado de agregar un producto al almacï¿½n.
 	 * 	
 	 * @param producto - producto a agregar 
 	 * devuelve el monto en que se ha incrementado el valor del stock o -1 si hay error
@@ -14,7 +15,7 @@ public interface IAlmacen {
 	public int agregar(IProducto unproducto);
 	
 	/**
-	 * Método encargado de buscar un producto cuya clave es la indicada.
+	 * Mï¿½todo encargado de buscar un producto cuya clave es la indicada.
 	 * 
 	 * @param uncodigo - codigo del producto a buscar.
 	 * @return El producto encontrado. En caso de no encontrarlo, retornar null.
@@ -22,7 +23,7 @@ public interface IAlmacen {
 	public IProducto buscarPorCodigo(int uncodigo);
 	
 	/**
-	 * Método encargado de buscar un producto cuya clave es la indicada.
+	 * Mï¿½todo encargado de buscar un producto cuya clave es la indicada.
 	 * 
 	 * @param unadescripcion- descripcion del producto a buscar.
 	 * @return El producto encontrado. En caso de no encontrarlo, retornar null.Str
@@ -30,28 +31,28 @@ public interface IAlmacen {
 	public IProducto buscarPorDescripcion(String unadescripcion);
 	
 	/**
-	 * Método encargado de eliminar un producto cuyo código es el indicado.
+	 * Mï¿½todo encargado de eliminar un producto cuyo cï¿½digo es el indicado.
 	 * 
 	 * @param uncodigo - codigo del producto a eliminar.
-	 * @return El producto eliminado del almacén en caso de que la eliminación haya sido efectuada con éxito, o null de lo contrario.
+	 * @return El producto eliminado del almacï¿½n en caso de que la eliminaciï¿½n haya sido efectuada con ï¿½xito, o null de lo contrario.
 	 */
 	public IProducto eliminar(int unCodigo);
 	
 	/**
-	 * Método encargado de imprimir en consola los campos de los Productos 
+	 * Mï¿½todo encargado de imprimir en consola los campos de los Productos 
 	 * contenidos en la lista.
 	 */
 	public void imprimir(); 
 	
 	/**
-	 * Retorna un array de Strings con los datos de los Productos, separadas por el separador pasado por parámetro.
+	 * Retorna un array de Strings con los datos de los Productos, separadas por el separador pasado por parï¿½metro.
 	 * @param separador Separa las claves 
 	 * @return
 	 */
 	public ArrayList<String> imprimir(String separador);
 	/**
 	 * Retorna la cantidad de elementos de la lista. En caso de 
-	 * que la lista este vacía, retornar 0.
+	 * que la lista este vacï¿½a, retornar 0.
 	 * @return Cantidad de elementos de la lista.
 	 */
 	public int cantElementos();

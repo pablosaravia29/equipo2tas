@@ -1,4 +1,4 @@
-package ut3.ta2;
+package com.mycompany.ut3_ta1_ej2;
 
 public interface IProducto {
 	/**
@@ -11,7 +11,7 @@ public interface IProducto {
 	/**
 	 * Retorna la descripcion del Producto.
 	 * 
-	 * @return descripción del Producto.
+	 * @return descripciï¿½n del Producto.
 	 */
 	public String  getDescripcion();
 	
@@ -42,5 +42,5 @@ public interface IProducto {
 	public void agregarStock(int stock);
 	public int restarStock(int stock);
 	public void imprimir(); // por consola
-	public String imprimir(String separador); //devuelve una string en que los campos están separados por el "separador"
+	public String imprimir(String separador); //devuelve una string en que los campos estï¿½n separados por el "separador"
 }
