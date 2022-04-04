@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Almacen implements IAlmacen {
     
 
-    private TLista listaProductos;
+    private final TLista listaProductos;
     private String nombre;
 
     public Almacen(String nombre) {
@@ -72,22 +72,22 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public int agregar(Object unproducto) {
+    public int agregar(IProducto unproducto) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Object buscarPorCodigo(int uncodigo) {
+    public IProducto buscarPorCodigo(int uncodigo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Object buscarPorDescripcion(String unadescripcion) {
+    public IProducto buscarPorDescripcion(String unadescripcion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Object eliminar(int unCodigo) {
+    public IProducto eliminar(int unCodigo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -112,10 +112,7 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public Object getPrimero() {
+    public IProducto getPrimero() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-
-    
 }
