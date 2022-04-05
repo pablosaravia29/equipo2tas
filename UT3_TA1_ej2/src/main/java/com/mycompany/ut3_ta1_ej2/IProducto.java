@@ -13,7 +13,7 @@ public interface IProducto {
 	 * 
 	 * @return descripci�n del Producto.
 	 */
-	public String  getDescripcion();
+	public String  getNombre();
 	
 	/**
 	 * Retorna el precio unitario del Producto.
@@ -38,7 +38,7 @@ public interface IProducto {
 	 * @return Siguiente Producto del actual
 	 */
 	public IProducto getSiguiente();
-
+        
 	public void agregarStock(int stock);
 	public int restarStock(int stock);
 	public void imprimir(); // por consola

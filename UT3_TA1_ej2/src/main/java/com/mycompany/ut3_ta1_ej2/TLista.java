@@ -4,6 +4,8 @@
  */
 package com.mycompany.ut3_ta1_ej2;
 
+import java.util.HashSet;
+
 /**
  *
  * @author PSARAVIA
@@ -78,5 +80,45 @@ public class TLista <T> {
         if (actual.getEtiqueta().compareTo(nodo.getEtiqueta()) < 0) {
             actual.setSiguiente(nodo);
         }
+    }
+    
+    public TNodo<T> eliminar(Comparable codigo){
+        if(!esVacio()){
+            TNodo nodoNulo = null;
+            TNodo<T> nodo = primero;
+            // Si la lista solo tiene un nodo:
+            if(nodo.getSiguiente() == null && nodo.getEtiqueta().equals(codigo)){
+                primero = null;
+                return nodo;
+            }
+            // Si el nodo a sacar es el primer elemento:
+            if(nodo.getEtiqueta().equals(codigo)){
+                nodo = nodo.getSiguiente();
+                return nodo;
+            }
+            // Para todos los demás casos
+            while(nodo != null){
+                if(nodo.getEtiqueta().equals(codigo)){
+                    nodoNulo.setSiguiente(nodo.getSiguiente());
+                    return nodo;
+                }
+                else{
+                    nodoNulo = nodo;
+                    nodo = nodo.getSiguiente();
+                }
+            }
+        }
+        return null;
+    }
+    
+    public int contadorDeElementos(){
+        TNodo<T> nodo = primero;
+        int contador = 0;
+        
+        while(nodo != null){
+            contador++;
+            nodo = nodo.getSiguiente();
+        }
+        return contador;
     }
 }
