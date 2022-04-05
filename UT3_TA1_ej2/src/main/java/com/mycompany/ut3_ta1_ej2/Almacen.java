@@ -4,6 +4,7 @@
  */
 package com.mycompany.ut3_ta1_ej2;
 
+import static com.mycompany.ut3_ta1_ej2.ManejadorArchivosGenerico.leerArchivo;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,6 @@ import java.util.ArrayList;
  * @author PSARAVIA
  */
 public class Almacen implements IAlmacen {
-    
 
     private final TLista listaProductos;
     private String nombre;
@@ -20,14 +20,14 @@ public class Almacen implements IAlmacen {
         this.nombre = nombre;
         this.listaProductos = new TLista();
     }
-    
+
     public String getNombre() {
         return this.nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    } 
+    }
 
     public TLista getListaProductos() {
         return this.listaProductos;
@@ -48,13 +48,12 @@ public class Almacen implements IAlmacen {
 
     public void reducirStock(Comparable etiqueta, int cantidad) {
         //TNodo<Producto> aux = listaProductos.buscar(etiqueta);
-	Producto aux = (Producto) (listaProductos.buscar(etiqueta)).getDato();  
-        if(aux != null) {
+        Producto aux = (Producto) (listaProductos.buscar(etiqueta)).getDato();
+        if (aux != null) {
             int stockActual = aux.getStock();
-            if(stockActual - cantidad < 0) {
+            if (stockActual - cantidad < 0) {
                 aux.setStock(0);
-            }
-            else {
+            } else {
                 aux.setStock(stockActual - cantidad);
             }
         }
@@ -114,5 +113,20 @@ public class Almacen implements IAlmacen {
     @Override
     public IProducto getPrimero() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void procesoArchivo(String ruta) {
+        String[] lineasArchivo = leerArchivo(ruta);
+        for (int i = 0; i < lineasArchivo.length ; i++)
+        {
+            String[] atributosProducto = lineasArchivo[i].split(",");
+            
+            TNodo productoBuscado = this.listaProductos.buscar(atributosProducto[0]);
+            
+            
+            
+        }
+        
     }
 }

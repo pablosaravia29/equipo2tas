@@ -13,6 +13,8 @@ public interface IAlmacen {
 	 * devuelve el monto en que se ha incrementado el valor del stock o -1 si hay error
 	 */
 	public int agregar(IProducto unproducto);
+        
+        public void procesoArchivo(String ruta);
 	
 	/**
 	 * M�todo encargado de buscar un producto cuya clave es la indicada.
