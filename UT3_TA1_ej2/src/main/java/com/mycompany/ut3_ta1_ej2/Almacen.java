@@ -8,37 +8,33 @@ import static com.mycompany.ut3_ta1_ej2.ManejadorArchivosGenerico.leerArchivo;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 
-/**
- *
- * @author PSARAVIA
- */
 public class Almacen implements IAlmacen {
-
+    
     private final TLista listaProductos;
     private String nombre;
-
+    
     public Almacen(String nombre) {
         this.nombre = nombre;
         this.listaProductos = new TLista();
     }
-
+    
     public String getNombre() {
         return this.nombre;
     }
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public TLista getListaProductos() {
         return this.listaProductos;
     }
-
+    
     public void agregarProducto(IProducto producto) {
         TNodo aux = new TNodo(producto.getCodigo(), producto);
         this.listaProductos.insertarOrdenado(aux);
     }
-
+    
     public void aumentarStock(Comparable etiqueta, int cantidad) {
         Producto aux = (Producto) (listaProductos.buscar(etiqueta)).getDato();
         if (aux != null) {
@@ -46,20 +42,23 @@ public class Almacen implements IAlmacen {
             aux.setStock(stockActual + cantidad);
         }
     }
-
-    public void reducirStock(Comparable etiqueta, int cantidad) {
+    
+    public int reducirStock(Comparable etiqueta, int cantidad) {
         //TNodo<Producto> aux = listaProductos.buscar(etiqueta);
         Producto aux = (Producto) (listaProductos.buscar(etiqueta)).getDato();
         if (aux != null) {
             int stockActual = aux.getStock();
             if (stockActual - cantidad < 0) {
                 aux.setStock(0);
+                return stockActual * aux.getPrecio();
             } else {
                 aux.setStock(stockActual - cantidad);
+                return cantidad * aux.getPrecio();
             }
         }
+        return 0;
     }
-
+    
     public void imprimirStock() {
         TLista aux = this.getListaProductos();
         TNodo nodo = aux.getPrimero();
@@ -70,7 +69,7 @@ public class Almacen implements IAlmacen {
             }
         }
     }
-
+    
     @Override
     public IProducto buscarPorCodigo(int codigo) {
         //if(!listaProductos.esVacio()){
@@ -81,7 +80,7 @@ public class Almacen implements IAlmacen {
             return null;
         }
     }
-
+    
     @Override
     public IProducto buscarPorDescripcion(String unaDescripcion) {
         String descripcion = unaDescripcion.toLowerCase();
@@ -96,7 +95,7 @@ public class Almacen implements IAlmacen {
         }
         return null;
     }
-
+    
     @Override
     public IProducto eliminarProducto(Comparable codigo) {
         TNodo<IProducto> productoEliminado = listaProductos.eliminar(codigo);
@@ -105,55 +104,109 @@ public class Almacen implements IAlmacen {
         }
         return (IProducto) productoEliminado.getDato();
     }
-
+    
     @Override
     public void imprimir() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.listaProductos.imprimir();
+        
     }
-
+    
     @Override
     public ArrayList<String> imprimir(String separador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
-
+    
     @Override
     public int cantElementos() {
         return listaProductos.contadorDeElementos();
     }
-
+    
     @Override
     public IProducto getPrimero() {
         return (IProducto) listaProductos.getPrimero();
     }
-
+    
     @Override
-    public void procesarArchivo(Almacen almacen, String ruta) {
-
+    public void procesarArchivo(String ruta) {
+        
         ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
         String[] lineasArchivo = manejador.leerArchivo(ruta);
         int montoTotal = 0;
-
+        
         for (String linea : lineasArchivo) {
             String[] atributosProducto = linea.split(",");
-            if (almacen.buscarPorCodigo(parseInt(atributosProducto[0])) == null) {
+            if (this.buscarPorCodigo(parseInt(atributosProducto[0])) == null) {
                 IProducto productoAgregado = new Producto(
                         Integer.parseInt(atributosProducto[0]),
                         atributosProducto[1],
                         Integer.parseInt(atributosProducto[2]),
                         Integer.parseInt(atributosProducto[3]));
-                almacen.agregarProducto(productoAgregado);
-            }
-            else{
-                almacen.aumentarStock(atributosProducto[0], Integer.parseInt(atributosProducto[3]));
+                this.agregarProducto(productoAgregado);
+            } else {
+                this.aumentarStock(atributosProducto[0], Integer.parseInt(atributosProducto[3]));
                 
             }
             montoTotal += Integer.parseInt(atributosProducto[2]) * Integer.parseInt(atributosProducto[3]);
         }
         System.out.println("El monto se ha incrementedo en : $" + montoTotal);
     }
-
+    
+    @Override
+    public void procesarArchivoVentas(String ruta) {
+        int montoTotal = 0;
+        ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
+        String[] lineasArchivo = manejador.leerArchivo(ruta);
+        for (String linea : lineasArchivo) {
+            String[] atributosVenta = linea.split(",");
+            if (this.buscarPorCodigo(parseInt(atributosVenta[0])) != null) {
+                montoTotal += this.reducirStock(atributosVenta[0], Integer.parseInt(atributosVenta[1]));
+            }
+        }
+        System.out.println("El monto se ha reducido en : $" + montoTotal);
+    }
+    
+    @Override
+    public void procesarArchivoEliminar(String ruta) {
+        ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
+        String[] lineasArchivo = manejador.leerArchivo(ruta);
+        for (String linea : lineasArchivo) {
+            String[] atributosVenta = linea.split(",");
+            this.eliminarProducto(atributosVenta[0]);
+        }
+    }
+    
+    @Override  
+    public void listarProductosEnArchivo(){
+        ArrayList<String> aux = new ArrayList<String>();
+        //recorremos la lista sin ordenarla ya que nosotros siempre insertamos ordenado
+        TNodo <IProducto> nodo = this.listaProductos.getPrimero();
+        String [] resultado;
+        while (nodo != null) {
+            IProducto unProducto = (IProducto)nodo.getDato();
+            aux.add(unProducto.getNombre() + "," + unProducto.getPrecio());
+            nodo = nodo.getSiguiente();
+        }
+        resultado = aux.toArray(new String[0]);
+        ManejadorArchivosGenerico.escribirArchivo("productos.txt",resultado);
+    }
+    
     @Override
     public boolean esVacia() {
         return listaProductos.esVacio();
+    }
+    
+    @Override
+    public TLista<IProducto> buscarSimilares(String descripcion){
+        TLista<IProducto> aux = new TLista<>();
+        TNodo <Producto> nodo = this.listaProductos.getPrimero();
+        while (nodo != null) {
+            IProducto unProducto = (IProducto) nodo.getDato();
+            if (unProducto.getNombre().contains(descripcion)){
+                TNodo<IProducto> nodoAux = new TNodo<>(unProducto.getCodigo(),unProducto);
+                aux.insertar(nodoAux);
+            }
+            nodo = nodo.getSiguiente();
+        }
+        return aux;
     }
 }

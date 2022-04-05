@@ -40,6 +40,32 @@ public class TLista <T> {
             aux.setSiguiente(nodo);
         }
     }
+    
+
+     public String imprimir() {
+        String aux = "";
+        if (!esVacio()) {
+            TNodo<T> temp = primero;
+            while (temp != null) {
+                temp.imprimirEtiqueta();
+                temp = temp.getSiguiente();
+            }
+        }
+        return aux;
+    }
+    
+    public String imprimir(String separador) {
+        String aux = "";
+        if (!esVacio()){
+            TNodo<T> temp = primero;
+            aux = "" + temp.getEtiqueta();
+            while (temp.getSiguiente() != null) {
+                aux = aux + separador + temp.getSiguiente().getEtiqueta();
+                temp = temp.getSiguiente();
+            }
+        }
+        return aux;
+    }
 
     public boolean esVacio() {
         return this.primero == null;
