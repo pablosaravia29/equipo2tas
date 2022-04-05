@@ -8,13 +8,13 @@ public class Producto implements IProducto{
 
     private String nombre;
     private int precio;
-    private Comparable etiqueta;
+    private int codigo;
     private int stock;
 
-    public Producto(String nombre, int precio, Comparable etiqueta, int stock) {
+    public Producto(int codigo, String nombre, int precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
-        this.etiqueta = etiqueta;
+        this.codigo = this.codigo;
         this.stock = stock;
     }
 
@@ -34,12 +34,12 @@ public class Producto implements IProducto{
         this.precio = precio;
     }
 
-    public Comparable getEtiqueta() {
-        return this.etiqueta;
+    public int getCodigo() {
+        return this.codigo;
     }
 
-    public void setEtiqueta(Comparable etiqueta) {
-        this.etiqueta = etiqueta;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public int getStock() {
@@ -54,17 +54,8 @@ public class Producto implements IProducto{
     public String toString() {
         String price = Integer.toString(this.precio);
         String stock = Integer.toString(this.getStock());
-        return ("Etiqueta: " + this.etiqueta.toString() + " || Nombre : " + this.nombre + " || Precio : " + price + " || Stock : " + stock);
-    }
-
-    @Override
-    public int getCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public String getDescripcion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String code = Integer.toString(this.getCodigo());
+        return ("Etiqueta: " + code + " || Nombre : " + this.nombre + " || Precio : " + price + " || Stock : " + stock);
     }
 
     @Override

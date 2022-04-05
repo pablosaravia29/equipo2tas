@@ -12,7 +12,9 @@ public interface IAlmacen {
 	 * @param producto - producto a agregar 
 	 * devuelve el monto en que se ha incrementado el valor del stock o -1 si hay error
 	 */
-	public int agregar(IProducto unproducto);
+	public void agregarProducto(IProducto producto);
+        
+        public void procesarArchivo(Almacen almacen, String ruta);
 	
 	/**
 	 * M�todo encargado de buscar un producto cuya clave es la indicada.
@@ -36,7 +38,7 @@ public interface IAlmacen {
 	 * @param uncodigo - codigo del producto a eliminar.
 	 * @return El producto eliminado del almac�n en caso de que la eliminaci�n haya sido efectuada con �xito, o null de lo contrario.
 	 */
-	public IProducto eliminar(int unCodigo);
+	public IProducto eliminarProducto(Comparable codigo);
 	
 	/**
 	 * M�todo encargado de imprimir en consola los campos de los Productos 
