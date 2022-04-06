@@ -18,7 +18,7 @@ public interface IAlmacen {
 
     public void procesarArchivoEliminar(String ruta);
 
-    public void listarProductosEnArchivo(); 
+    public void listarProductosEnArchivo();
 
     public TLista<IProducto> buscarSimilares(String descripcion);
 
@@ -46,7 +46,7 @@ public interface IAlmacen {
      * @return El producto eliminado del almac�n en caso de que la eliminaci�n
      * haya sido efectuada con �xito, o null de lo contrario.
      */
-    public IProducto eliminarProducto(Comparable codigo);
+    public IProducto eliminarProducto(int codigo);
 
     /**
      * M�todo encargado de imprimir en consola los campos de los Productos
@@ -84,5 +84,7 @@ public interface IAlmacen {
      * @return Primer producto de la lista.
      */
     public IProducto getPrimero();
+
+    public TLista<IProducto> ordenAlfabetico();
 
 }

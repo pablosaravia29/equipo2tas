@@ -11,7 +11,7 @@ import java.util.HashSet;
  * @author PSARAVIA
  * @param <T>
  */
-public class TLista <T> {
+public class TLista<T> {
 
     private TNodo<T> primero = null;
 
@@ -40,9 +40,8 @@ public class TLista <T> {
             aux.setSiguiente(nodo);
         }
     }
-    
 
-     public String imprimir() {
+    public String imprimir() {
         String aux = "";
         if (!esVacio()) {
             TNodo<T> temp = primero;
@@ -53,10 +52,10 @@ public class TLista <T> {
         }
         return aux;
     }
-    
+
     public String imprimir(String separador) {
         String aux = "";
-        if (!esVacio()){
+        if (!esVacio()) {
             TNodo<T> temp = primero;
             aux = "" + temp.getEtiqueta();
             while (temp.getSiguiente() != null) {
@@ -107,28 +106,30 @@ public class TLista <T> {
             actual.setSiguiente(nodo);
         }
     }
-    
-    public TNodo<T> eliminar(Comparable codigo){
-        if(!esVacio()){
+
+    public TNodo<T> eliminar(Comparable codigo) {
+        if (!esVacio()) {
             TNodo nodoNulo = null;
             TNodo<T> nodo = primero;
             // Si la lista solo tiene un nodo:
-            if(nodo.getSiguiente() == null && nodo.getEtiqueta().equals(codigo)){
+            if (nodo.getSiguiente() == null && nodo.getEtiqueta().equals(codigo)) {
                 primero = null;
                 return nodo;
             }
             // Si el nodo a sacar es el primer elemento:
-            if(nodo.getEtiqueta().equals(codigo)){
-                nodo = nodo.getSiguiente();
-                return nodo;
+            if (nodo.getEtiqueta().equals(codigo)) {
+              //  nodoNulo = nodo.getSiguiente();
+               // return nodoNulo.getSiguiente();
+               nodoNulo = primero;
+               primero = nodoNulo.getSiguiente();
+               return nodoNulo;
             }
             // Para todos los demás casos
-            while(nodo != null){
-                if(nodo.getEtiqueta().equals(codigo)){
+            while (nodo != null) {
+                if (nodo.getEtiqueta().equals(codigo)) {
                     nodoNulo.setSiguiente(nodo.getSiguiente());
                     return nodo;
-                }
-                else{
+                } else {
                     nodoNulo = nodo;
                     nodo = nodo.getSiguiente();
                 }
@@ -136,12 +137,12 @@ public class TLista <T> {
         }
         return null;
     }
-    
-    public int contadorDeElementos(){
+
+    public int contadorDeElementos() {
         TNodo<T> nodo = primero;
         int contador = 0;
-        
-        while(nodo != null){
+
+        while (nodo != null) {
             contador++;
             nodo = nodo.getSiguiente();
         }
