@@ -29,7 +29,7 @@ public interface IProducto {
 	 */
 	public int getStock();
 	public void setStock(int unStock); 
-	
+	public String imprimirStock();
 	
 	public void setSiguiente(IProducto Producto);
 	

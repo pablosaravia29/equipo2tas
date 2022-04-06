@@ -4,7 +4,7 @@
  */
 package com.mycompany.ut3_ta1_ej2;
 
-public class Producto implements IProducto{
+public class Producto implements IProducto {
 
     private String nombre;
     private int precio;
@@ -14,7 +14,7 @@ public class Producto implements IProducto{
     public Producto(int codigo, String nombre, int precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
-        this.codigo = this.codigo;
+        this.codigo = codigo;
         this.stock = stock;
     }
 
@@ -48,6 +48,12 @@ public class Producto implements IProducto{
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    @Override
+    public String imprimirStock() {
+        String stock = Integer.toString(this.getStock());
+        return ("El Stock de " + this.getNombre()+ " es: " + stock);
     }
 
     @Override
