@@ -13,8 +13,12 @@ import java.util.Arrays;
  */
 public class UT3_TA1_ej2 {
 
+       static Almacen geant = new Almacen("Geant");
+
     public static void main(String[] args) {
-        System.out.println("Test");
+
+        geant.procesarArchivo("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\altasPrueba.txt");
+        geant.imprimirStock();
      
 
     

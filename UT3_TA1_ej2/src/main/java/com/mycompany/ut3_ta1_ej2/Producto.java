@@ -14,7 +14,7 @@ public class Producto implements IProducto{
     public Producto(int codigo, String nombre, int precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
-        this.codigo = this.codigo;
+        this.codigo = codigo;
         this.stock = stock;
     }
 
