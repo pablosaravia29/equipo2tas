@@ -12,7 +12,7 @@ public interface IAlmacen {
      */
     public void agregarProducto(IProducto producto);
 
-    public void procesarArchivo(String ruta);
+    public void procesarArchivoAltas(String ruta);
 
     public void procesarArchivoVentas(String ruta);
 
@@ -25,10 +25,10 @@ public interface IAlmacen {
     /**
      * M�todo encargado de buscar un producto cuya clave es la indicada.
      *
-     * @param uncodigo - codigo del producto a buscar.
+     * @param codigo - codigo del producto a buscar.
      * @return El producto encontrado. En caso de no encontrarlo, retornar null.
      */
-    public IProducto buscarPorCodigo(int uncodigo);
+    public IProducto buscarPorCodigo(int codigo);
 
     /**
      * M�todo encargado de buscar un producto cuya clave es la indicada.

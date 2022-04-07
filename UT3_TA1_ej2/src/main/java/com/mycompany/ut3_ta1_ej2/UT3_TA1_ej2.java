@@ -17,19 +17,16 @@ public class UT3_TA1_ej2 {
 
     public static void main(String[] args) {
 
-        geant.procesarArchivo("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\altasPrueba.txt");
+        geant.procesarArchivoAltas("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\altasPrueba.txt");
         geant.imprimirStock();
 
         geant.procesarArchivoEliminar("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\elimPrueba.txt");
-        geant.imprimirStock();
-       // geant.procesarArchivoVentas("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\ventasPrueba.txt");
-       // geant.imprimirStock();
+        geant.procesarArchivoVentas("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\ventasPrueba.txt");
+       geant.imprimirStock();
 
        geant.listarProductosEnArchivo();
-       IProducto prod =  geant.buscarPorCodigo(1000073); 
-       //System.out.println( prod.imprimirStock());
+       IProducto prod =  geant.buscarPorCodigo(1000097); 
+       System.out.println( prod.imprimirStock());
        
-    
-        
     }
 }

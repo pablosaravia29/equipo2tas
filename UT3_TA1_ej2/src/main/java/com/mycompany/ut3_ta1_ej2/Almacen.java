@@ -44,18 +44,19 @@ public class Almacen implements IAlmacen {
         }
     }
 
-    public int reducirStock(Comparable etiqueta, int cantidad) {
-        //TNodo<Producto> aux = listaProductos.buscar(etiqueta);
-        Producto aux = (Producto) (listaProductos.buscar(etiqueta)).getDato();
-        if (aux != null) {
-            int stockActual = aux.getStock();
-            if (stockActual - cantidad < 0) {
-                aux.setStock(0);
-                return stockActual * aux.getPrecio();
-            } else {
-                aux.setStock(stockActual - cantidad);
-                return cantidad * aux.getPrecio();
-            }
+    public int reducirStock(int etiqueta, int cantidad) {
+
+        IProducto producto = this.buscarPorCodigo(etiqueta);
+        if(producto != null){
+          if(producto.getStock() - cantidad >= 0){
+            producto.setStock(producto.getStock() - cantidad);
+            return producto.getPrecio()*cantidad;
+            }  
+          else{
+              int stock = producto.getStock()*producto.getPrecio();
+              producto.setStock(0);
+              return stock;
+          }
         }
         return 0;
     }
@@ -87,13 +88,6 @@ public class Almacen implements IAlmacen {
             }
             return null;
         }
-
-        /*   TNodo<IProducto> productoBuscado = listaProductos.buscar(codigo);
-        if (productoBuscado != null) {
-            return productoBuscado.getDato();
-        } else {
-            return null;
-        }*/
     }
 
     @Override
@@ -155,7 +149,7 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public void procesarArchivo(String ruta) {
+    public void procesarArchivoAltas(String ruta) {
 
         ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
         String[] lineasArchivo = manejador.leerArchivo(ruta);
@@ -187,7 +181,7 @@ public class Almacen implements IAlmacen {
         for (String linea : lineasArchivo) {
             String[] atributosVenta = linea.split(",");
             if (this.buscarPorCodigo(parseInt(atributosVenta[0])) != null) {
-                montoTotal += this.reducirStock(atributosVenta[0], Integer.parseInt(atributosVenta[1]));
+                montoTotal += this.reducirStock(Integer.parseInt(atributosVenta[0]), Integer.parseInt(atributosVenta[1]));
             }
         }
         System.out.println("El monto se ha reducido en : $" + montoTotal);
@@ -209,7 +203,7 @@ public class Almacen implements IAlmacen {
             
             this.eliminarProducto(parseInt(linea));
         }
-        System.out.println("El valor reducido del stock es: " + valorReducido);
+        System.out.println("El valor reducido del stock es: $" + valorReducido);
     }
 
     @Override
