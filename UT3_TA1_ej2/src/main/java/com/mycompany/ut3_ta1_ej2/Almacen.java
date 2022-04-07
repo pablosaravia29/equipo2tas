@@ -112,12 +112,25 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public IProducto eliminarProducto(int codigo) {
+    public IProducto eliminarProducto(int codigo) {        
         TNodo<IProducto> productoEliminado = listaProductos.eliminar(codigo);
+        
         if (productoEliminado == null) {
             return null;
         }
+        
         return (IProducto) productoEliminado.getDato();
+    }
+    
+    public int valorStock(){
+        int valor = 0;
+        TNodo <Producto> nodo = this.listaProductos.getPrimero();
+        while (nodo != null){
+            Producto producto = nodo.getDato();
+            valor += producto.getPrecio()*producto.getStock();
+            nodo = nodo.getSiguiente();
+        }
+        return valor;
     }
 
     @Override
@@ -182,12 +195,21 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void procesarArchivoEliminar(String ruta) {
+        
         ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
         String[] lineasArchivo = manejador.leerArchivo(ruta);
+        int valorReducido = 0;
+        
         for (String linea : lineasArchivo) {
-
+            IProducto productoAux = this.buscarPorCodigo(parseInt(linea));
+            
+            if(productoAux != null){
+                valorReducido += productoAux.getPrecio()*productoAux.getStock();
+            }
+            
             this.eliminarProducto(parseInt(linea));
         }
+        System.out.println("El valor reducido del stock es: " + valorReducido);
     }
 
     @Override

@@ -20,15 +20,15 @@ public class UT3_TA1_ej2 {
         geant.procesarArchivo("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\altasPrueba.txt");
         geant.imprimirStock();
 
-        //      geant.procesarArchivoEliminar("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\elimPrueba.txt");
-        //    geant.imprimirStock();
+        geant.procesarArchivoEliminar("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\elimPrueba.txt");
+        geant.imprimirStock();
        // geant.procesarArchivoVentas("src\\main\\java\\com\\mycompany\\ut3_ta1_ej2\\ventasPrueba.txt");
        // geant.imprimirStock();
 
-        geant.listarProductosEnArchivo();
-        IProducto prod =  geant.buscarPorCodigo(1000073); 
-       System.out.println( prod.imprimirStock());
-     
+       geant.listarProductosEnArchivo();
+       IProducto prod =  geant.buscarPorCodigo(1000073); 
+       //System.out.println( prod.imprimirStock());
+       
     
         
     }
