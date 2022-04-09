@@ -16,6 +16,8 @@ public class ManejadorArchivosGenerico
      * @param listaLineasArchivo lista con las lineas del archivo
      * @throws IOException
      */
+    
+    
     public static void escribirArchivo(String nombreCompletoArchivo,
             String[] listaLineasArchivo)
     {

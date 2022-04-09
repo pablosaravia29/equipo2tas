@@ -1,55 +1,49 @@
 package ucu.edu.uy.tda;
 
-public class Lista<T> implements ILista<T>
-{
+public class Lista<T> implements ILista<T> {
 
     private Nodo<T> primero;
 
-    public Lista()
-    {
+    public Lista() {
         primero = null;
     }
 
     @Override
-    public void insertar(Nodo<T> unNodo)
-    {
+    public void insertar(Nodo<T> unNodo) {
+        if (esVacio()) {
+            primero = nodo;
+        } else {
+            nodo.setSiguiente(primero);
+            primero = nodo;
+        }
+    }
+
+    @Override
+    public Nodo<T> buscar(Comparable clave) {
         // Implementar método
     }
 
     @Override
-    public Nodo<T> buscar(Comparable clave)
-    {
-        // Implementar método
-    }
-
-    @Override
-    public boolean eliminar(Comparable clave)
-    {
-        if (esVacia())
-        {
+    public boolean eliminar(Comparable clave) {
+        if (esVacia()) {
             return false;
         }
-        if (primero.getSiguiente() == null)
-        {
-            if (primero.getEtiqueta().equals(clave))
-            {
+        if (primero.getSiguiente() == null) {
+            if (primero.getEtiqueta().equals(clave)) {
                 primero = null;
                 return true;
             }
         }
         Nodo<T> aux = primero;
-        if (aux.getEtiqueta().compareTo(clave) == 0)
-        {
+        if (aux.getEtiqueta().compareTo(clave) == 0) {
             //Eliminamos el primer elemento
             Nodo<T> temp1 = aux;
             Nodo<T> temp = aux.getSiguiente();
             primero = temp;
             return true;
         }
-        while (aux.getSiguiente() != null)
-        {
-            if (aux.getSiguiente().getEtiqueta().equals(clave))
-            {
+        while (aux.getSiguiente() != null) {
+            if (aux.getSiguiente().getEtiqueta().equals(clave)) {
                 Nodo<T> temp = aux.getSiguiente();
                 aux.setSiguiente(temp.getSiguiente());
                 return true;
@@ -61,14 +55,11 @@ public class Lista<T> implements ILista<T>
     }
 
     @Override
-    public String imprimir()
-    {
+    public String imprimir() {
         String aux = "";
-        if (!esVacia())
-        {
+        if (!esVacia()) {
             Nodo<T> temp = primero;
-            while (temp != null)
-            {
+            while (temp != null) {
                 temp.imprimirEtiqueta();
                 temp = temp.getSiguiente();
             }
@@ -76,19 +67,14 @@ public class Lista<T> implements ILista<T>
         return aux;
     }
 
-    public String imprimir(String separador)
-    {
+    public String imprimir(String separador) {
         String aux = "";
-        if (esVacia())
-        {
+        if (esVacia()) {
             return "";
-        }
-        else
-        {
+        } else {
             Nodo<T> temp = primero;
             aux = "" + temp.getEtiqueta();
-            while (temp.getSiguiente() != null)
-            {
+            while (temp.getSiguiente() != null) {
                 aux = aux + separador + temp.getSiguiente().getEtiqueta();
                 temp = temp.getSiguiente();
             }
@@ -99,19 +85,14 @@ public class Lista<T> implements ILista<T>
     }
 
     @Override
-    public int cantElementos()
-    {
+    public int cantElementos() {
         int contador = 0;
-        if (esVacia())
-        {
+        if (esVacia()) {
             System.out.println("Cantidad de elementos 0.");
             return 0;
-        }
-        else
-        {
+        } else {
             INodo aux = primero;
-            while (aux != null)
-            {
+            while (aux != null) {
                 contador++;
                 aux = aux.getSiguiente();
             }
@@ -120,20 +101,17 @@ public class Lista<T> implements ILista<T>
     }
 
     @Override
-    public boolean esVacia()
-    {
+    public boolean esVacia() {
         return primero == null;
     }
 
     @Override
-    public Nodo<T> getPrimero()
-    {
+    public Nodo<T> getPrimero() {
         return primero;
     }
 
     @Override
-    public void setPrimero(Nodo<T> unNodo)
-    {
+    public void setPrimero(Nodo<T> unNodo) {
         this.primero = unNodo;
     }
 }

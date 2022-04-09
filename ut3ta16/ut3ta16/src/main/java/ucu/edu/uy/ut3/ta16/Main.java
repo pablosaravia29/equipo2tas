@@ -1,12 +1,13 @@
+package ucu.edu.uy.ut3.ta16;
+
 /*
  * NO LICENCE 
  * Author: Ing. Nicolás Navarro Gutérrez
  */
-package ucu.edu.uy.ut3.ta16;
 
-import ucu.edu.uy.tda.ILista;
-import ucu.edu.uy.tda.Nodo;
 
+import ucu.edu.uy.tda.*;
+import ucu.edu.uy.util.*;
 /**
  *
  * @author nnavarro
