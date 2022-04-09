@@ -59,4 +59,6 @@ public interface ILista<T> {
     
     public Nodo<T> getPrimero();
 
+    public boolean esVacio();
+
 }

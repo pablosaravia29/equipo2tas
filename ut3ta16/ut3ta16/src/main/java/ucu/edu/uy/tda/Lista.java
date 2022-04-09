@@ -1,15 +1,16 @@
 package ucu.edu.uy.tda;
+import ucu.edu.uy.ut3.ta16.*;
 
 public class Lista<T> implements ILista<T> {
 
-    private Nodo<T> primero;
+    private Nodo<T> primero = null;
 
     public Lista() {
         primero = null;
     }
 
     @Override
-    public void insertar(Nodo<T> unNodo) {
+    public void insertar(Nodo<T> nodo) {
         if (esVacio()) {
             primero = nodo;
         } else {
@@ -17,11 +18,25 @@ public class Lista<T> implements ILista<T> {
             primero = nodo;
         }
     }
-
+    
     @Override
     public Nodo<T> buscar(Comparable clave) {
-        // Implementar método
+        Nodo<T> aux = primero;
+        while (aux != null) {
+            if (aux.getEtiqueta().equals(clave.toString())) {
+                return aux;
+            }
+            aux = aux.getSiguiente();
+        }
+        return null;
     }
+
+
+    public boolean esVacio(){
+        return this.primero == null;
+    }
+
+
 
     @Override
     public boolean eliminar(Comparable clave) {
