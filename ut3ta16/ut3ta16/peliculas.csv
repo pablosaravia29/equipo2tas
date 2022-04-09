@@ -1,0 +1,480 @@
+id,title,year,critic_score,type,original_language
+84,Henry V,1989,100,Action & Adventure,English
+849,Kiki's Delivery Service,1989,98,Kids & Family,Japanese
+860,The Little Mermaid,1989,93,Kids & Family,English
+1142,Henry V,1989,100,Romance,English
+1162,Say Anything...,1989,98,Romance,English
+1195,The Little Mermaid,1989,93,Romance,English
+780,The Witches,1990,93,Horror,English
+781,Arachnophobia,1990,93,Horror,English
+792,Misery,1990,90,Horror,English
+885,The Witches,1990,93,Kids & Family,English
+718,The Silence of the Lambs,1991,96,Horror,English
+828,Beauty and the Beast,1991,94,Kids & Family,English
+1053,The Silence of the Lambs,1991,96,Mystery & Suspense,English
+1131,Only Yesterday,1991,100,Romance,Japanese
+1134,Beauty and the Beast,1991,94,Romance,English
+1193,Daughters of the Dust,1991,93,Romance,English
+1264,Beauty and the Beast,1991,94,Science Fiction & Fantasy,English
+484,The Player,1992,98,Comedy,English
+851,Aladdin,1992,95,Kids & Family,English
+1189,Howards End,1992,94,Romance,English
+1192,The Crying Game,1992,94,Romance,English
+93,The Fugitive,1993,96,Action & Adventure,English
+481,Groundhog Day,1993,96,Comedy,English
+795,Cronos,1993,91,Horror,English
+834,The Nightmare Before Christmas,1993,95,Kids & Family,English
+1088,The Fugitive,1993,96,Mystery & Suspense,English
+1097,Jurassic Park,1993,91,Mystery & Suspense,English
+1099,In the Line of Fire,1993,96,Mystery & Suspense,English
+1143,Groundhog Day,1993,96,Romance,English
+1163,Blue,1993,98,Romance,French (Canada)
+1181,Dave,1993,95,Romance,English
+1275,The Nightmare Before Christmas,1993,95,Science Fiction & Fantasy,English
+1276,Groundhog Day,1993,96,Science Fiction & Fantasy,English
+1296,Jurassic Park,1993,91,Science Fiction & Fantasy,English
+95,The Lion King,1994,93,Action & Adventure,English
+842,The Lion King,1994,93,Kids & Family,English
+868,The Secret of Roan Inish,1994,95,Kids & Family,English
+1137,Three Colors: Red,1994,100,Romance,French (Canada)
+1173,Four Weddings and a Funeral,1994,96,Romance,English
+94,Apollo 13,1995,96,Action & Adventure,English
+437,Toy Story,1995,100,Comedy,English
+819,Toy Story,1995,100,Kids & Family,English
+845,Babe,1995,97,Kids & Family,English (Australia)
+1147,Before Sunrise,1995,100,Romance,English
+1167,Sense and Sensibility,1995,97,Romance,English
+881,That Thing You Do!,1996,93,Kids & Family,English
+887,James and the Giant Peach,1996,91,Kids & Family,English
+1185,A Summer's Tale,1996,98,Romance,French (Canada)
+1188,Big Night,1996,96,Romance,English
+697,L.A. Confidential,1997,99,Drama,English
+864,Princess Mononoke,1997,93,Kids & Family,Japanese
+1036,L.A. Confidential,1997,99,Mystery & Suspense,English
+1160,Titanic,1997,89,Romance,English
+486,The Truman Show,1998,95,Comedy,English
+871,Antz,1998,92,Kids & Family,English
+876,A Bug's Life,1998,92,Kids & Family,English
+1174,Shakespeare in Love,1998,92,Romance,English
+422,Toy Story 2,1999,100,Comedy,English
+811,Toy Story 2,1999,100,Kids & Family,English
+839,The Iron Giant,1999,96,Kids & Family,English
+857,The Straight Story,1999,95,Kids & Family,English
+1286,The Iron Giant,1999,96,Science Fiction & Fantasy,English
+71,Chicken Run,2000,97,Action & Adventure,English
+92,Crouching Tiger, Hidden Dragon,2000,97,Action & Adventure,Chinese
+465,Chicken Run,2000,97,Comedy,English
+757,Werckmeister Harmonies,2000,98,Horror,Unknown language
+830,Chicken Run,2000,97,Kids & Family,English
+1157,Crouching Tiger, Hidden Dragon,2000,97,Romance,Chinese
+483,Monsters, Inc.,2001,96,Comedy,English
+835,Monsters, Inc.,2001,96,Kids & Family,English
+838,Spirited Away,2001,97,Kids & Family,Japanese
+872,Spy Kids,2001,93,Kids & Family,English
+889,Shrek,2001,88,Kids & Family,English
+1198,Monsoon Wedding,2001,95,Romance,English
+1277,Monsters, Inc.,2001,96,Science Fiction & Fantasy,English
+1284,Spirited Away,2001,97,Science Fiction & Fantasy,Japanese
+85,The Lord of the Rings: The Two Towers,2002,95,Action & Adventure,English
+97,Catch Me if You Can,2002,96,Action & Adventure,English
+798,28 Days Later,2002,87,Horror,English
+1196,About a Boy,2002,93,Romance,English
+1278,The Lord of the Rings: The Two Towers,2002,95,Science Fiction & Fantasy,English
+426,Finding Nemo,2003,99,Comedy,English
+498,Lost in Translation,2003,95,Comedy,English
+813,Finding Nemo,2003,99,Kids & Family,English
+1161,Lost in Translation,2003,95,Romance,English
+454,The Incredibles,2004,97,Comedy,English
+459,Sideways,2004,97,Comedy,English
+758,Shaun of the Dead,2004,92,Horror,English
+824,The Incredibles,2004,97,Kids & Family,English
+865,Harry Potter and the Prisoner of Azkaban,2004,90,Kids & Family,English
+883,Shrek 2,2004,89,Kids & Family,English
+1133,Sideways,2004,97,Romance,English
+1183,Eternal Sunshine of the Spotless Mind,2004,92,Romance,English
+1187,Before Sunset,2004,94,Romance,English
+846,Wallace & Gromit: The Curse of the Were-Rabbit,2005,95,Kids & Family,
+874,Harry Potter and the Goblet of Fire,2005,88,Kids & Family,English
+891,Lassie,2005,93,Kids & Family,English
+893,Duma,2005,93,Kids & Family,English
+73,Casino Royale,2006,94,Action & Adventure,English
+723,Pan's Labyrinth,2006,95,Horror,Spanish (Spain)
+761,The Host,2006,93,Horror,Korean
+1067,Casino Royale,2006,94,Mystery & Suspense,English
+1262,Pan's Labyrinth,2006,95,Science Fiction & Fantasy,Spanish (Spain)
+76,No Country for Old Men,2007,93,Action & Adventure,English
+451,Ratatouille,2007,96,Comedy,English
+822,Ratatouille,2007,96,Kids & Family,English
+855,Enchanted,2007,93,Kids & Family,English
+1069,No Country for Old Men,2007,93,Mystery & Suspense,English
+1182,Enchanted,2007,93,Romance,English
+25,The Dark Knight,2008,94,Action & Adventure,English
+36,The Hurt Locker,2008,97,Action & Adventure,English
+48,WALL-E,2008,95,Action & Adventure,English
+50,Iron Man,2008,94,Action & Adventure,English
+663,The Dark Knight,2008,94,Drama,English
+675,The Wrestler,2008,98,Drama,English
+686,The Hurt Locker,2008,97,Drama,English
+713,Let the Right One In,2008,98,Horror,Swedish
+873,Summer Hours,2008,94,Kids & Family,French (France)
+878,Ponyo,2008,91,Kids & Family,Japanese
+895,Kung Fu Panda,2008,87,Kids & Family,English
+1150,Slumdog Millionaire,2008,91,Romance,English
+1199,Revanche,2008,96,Romance,German
+1224,The Dark Knight,2008,94,Science Fiction & Fantasy,English
+1245,WALL-E,2008,95,Science Fiction & Fantasy,English
+1247,Iron Man,2008,94,Science Fiction & Fantasy,English
+23,Up,2009,98,Action & Adventure,English
+38,Star Trek,2009,94,Action & Adventure,English
+420,Up,2009,98,Comedy,English
+738,Drag Me to Hell,2009,92,Horror,English
+750,The Loved Ones,2009,98,Horror,English
+765,Zombieland,2009,89,Horror,English
+809,Up,2009,98,Kids & Family,English
+848,Fantastic Mr. Fox,2009,93,Kids & Family,English
+858,Coraline,2009,90,Kids & Family,English
+1179,Up in the Air,2009,90,Romance,English
+1235,Star Trek,2009,94,Science Fiction & Fantasy,English
+62,True Grit,2010,95,Action & Adventure,English
+421,Toy Story 3,2010,98,Comedy,English
+694,The Social Network,2010,96,Drama,English
+787,Let Me In,2010,88,Horror,English
+810,Toy Story 3,2010,98,Kids & Family,English
+820,How to Train Your Dragon,2010,99,Kids & Family,English
+882,Tangled,2010,89,Kids & Family,English
+1184,The Town,2010,92,Romance,English
+1243,How to Train Your Dragon,2010,99,Science Fiction & Fantasy,English
+31,Harry Potter and the Deathly Hallows: Part 2,2011,96,Action & Adventure,English
+442,The Artist,2011,95,Comedy,
+495,The Muppets,2011,95,Comedy,English
+676,Harry Potter and the Deathly Hallows: Part 2,2011,96,Drama,English
+727,The Cabin in the Woods,2011,92,Horror,English
+815,Harry Potter and the Deathly Hallows: Part 2,2011,96,Kids & Family,English
+841,The Muppets,2011,95,Kids & Family,English
+852,Hugo,2011,93,Kids & Family,English
+870,Arthur Christmas,2011,92,Kids & Family,English
+886,First Position,2011,93,Kids & Family,English
+888,Rango,2011,88,Kids & Family,English
+892,Winnie the Pooh,2011,91,Kids & Family,English
+1029,Harry Potter and the Deathly Hallows: Part 2,2011,96,Mystery & Suspense,English
+1070,The Cabin in the Woods,2011,92,Mystery & Suspense,English
+1119,The Artist,2011,95,Romance,
+1175,Midnight in Paris,2011,93,Romance,English
+1230,Harry Potter and the Deathly Hallows: Part 2,2011,96,Science Fiction & Fantasy,English
+32,Skyfall,2012,92,Action & Adventure,English
+49,Marvel's the Avengers,2012,91,Action & Adventure,English
+70,Looper,2012,93,Action & Adventure,English
+467,Moonrise Kingdom,2012,93,Comedy,English
+497,Silver Linings Playbook,2012,92,Comedy,English
+637,Argo,2012,96,Drama,English
+755,Room 237,2012,94,Horror,English
+786,Frankenweenie,2012,87,Horror,English
+884,ParaNorman,2012,89,Kids & Family,English
+898,Wreck-It Ralph,2012,87,Kids & Family,English
+1012,Argo,2012,96,Mystery & Suspense,English
+1030,Skyfall,2012,92,Mystery & Suspense,English
+1064,Looper,2012,93,Mystery & Suspense,English
+1246,Marvel's the Avengers,2012,91,Science Fiction & Fantasy,English
+1266,Looper,2012,93,Science Fiction & Fantasy,English
+67,All Is Lost,2013,94,Action & Adventure,English
+490,Enough Said,2013,95,Comedy,English
+636,12 Years a Slave,2013,95,Drama,English
+644,Gravity,2013,95,Drama,English
+791,The Conjuring,2013,86,Horror,English
+853,Frozen,2013,90,Kids & Family,English
+1060,All Is Lost,2013,94,Mystery & Suspense,English
+1115,Before Midnight,2013,98,Romance,English
+1123,Her,2013,94,Romance,English
+1153,Enough Said,2013,95,Romance,English
+1165,The Lunchbox,2013,97,Romance,Hindi
+1218,Gravity,2013,95,Science Fiction & Fantasy,English
+1244,Her,2013,94,Science Fiction & Fantasy,English
+1253,Snowpiercer,2013,94,Science Fiction & Fantasy,English
+1285,Jodorowsky's Dune,2013,98,Science Fiction & Fantasy,English
+1295,The Hunger Games: Catching Fire,2013,90,Science Fiction & Fantasy,English
+37,The LEGO Movie,2014,96,Action & Adventure,English
+46,Guardians of the Galaxy,2014,92,Action & Adventure,English
+63,X-Men: Days of Future Past,2014,90,Action & Adventure,English
+77,Dawn of the Planet of the Apes,2014,90,Action & Adventure,English
+86,Captain America: The Winter Soldier,2014,90,Action & Adventure,English
+433,The LEGO Movie,2014,96,Comedy,English
+439,Birdman or (The Unexpected Virtue of Ignorance),2014,91,Comedy,English
+450,The Grand Budapest Hotel,2014,92,Comedy,English
+471,What We Do in the Shadows,2014,96,Comedy,English
+472,Paddington,2014,97,Comedy,English
+621,Selma,2014,99,Drama,English
+634,Boyhood,2014,97,Drama,English
+669,The Babadook,2014,98,Drama,English (Australia)
+709,The Babadook,2014,98,Horror,English (Australia)
+714,It Follows,2014,95,Horror,English
+739,A Girl Walks Home Alone at Night,2014,96,Horror,Persian
+817,The LEGO Movie,2014,96,Kids & Family,English
+831,Paddington,2014,97,Kids & Family,English
+840,Song of the Sea,2014,99,Kids & Family,English
+856,How to Train Your Dragon 2,2014,92,Kids & Family,English
+862,Big Hero 6,2014,89,Kids & Family,English
+1024,The Babadook,2014,98,Mystery & Suspense,English (Australia)
+1038,Nightcrawler,2014,95,Mystery & Suspense,English
+1091,Gone Girl,2014,87,Mystery & Suspense,English
+1166,A Girl Walks Home Alone at Night,2014,96,Romance,Persian
+1241,Guardians of the Galaxy,2014,92,Science Fiction & Fantasy,English
+1252,Edge of Tomorrow,2014,91,Science Fiction & Fantasy,English
+1261,X-Men: Days of Future Past,2014,90,Science Fiction & Fantasy,English
+1270,Dawn of the Planet of the Apes,2014,90,Science Fiction & Fantasy,English
+1282,Captain America: The Winter Soldier,2014,90,Science Fiction & Fantasy,English
+1288,Song of the Sea,2014,99,Science Fiction & Fantasy,English
+3,Mad Max: Fury Road,2015,97,Action & Adventure,English
+11,Star Wars: The Force Awakens,2015,93,Action & Adventure,English
+34,Mission: Impossible Rogue Nation,2015,94,Action & Adventure,English
+80,Sicario,2015,92,Action & Adventure,English
+446,Shaun the Sheep Movie,2015,99,Comedy,English
+447,Spy,2015,95,Comedy,English
+482,Anomalisa,2015,92,Comedy,English
+622,Spotlight,2015,97,Drama,English
+665,Brooklyn,2015,97,Drama,English (United Kingdom)
+673,Creed,2015,95,Drama,English
+726,The Witch,2015,90,Horror,English
+777,We Are Still Here,2015,95,Horror,English
+796,Bone Tomahawk,2015,91,Horror,English
+803,Inside Out,2015,98,Kids & Family,English
+894,The Peanuts Movie,2015,87,Kids & Family,English
+1009,Spotlight,2015,97,Mystery & Suspense,English
+1059,Eye in the Sky,2015,95,Mystery & Suspense,English
+1073,Ex Machina,2015,92,Mystery & Suspense,English
+1075,Sicario,2015,92,Mystery & Suspense,English
+1089,Bridge of Spies,2015,90,Mystery & Suspense,English
+1114,Carol,2015,94,Romance,English
+1204,Mad Max: Fury Road,2015,97,Science Fiction & Fantasy,English
+1214,Star Wars: The Force Awakens,2015,93,Science Fiction & Fantasy,English
+1236,The Martian,2015,91,Science Fiction & Fantasy,English
+1269,Ex Machina,2015,92,Science Fiction & Fantasy,English
+16,Zootopia,2016,98,Action & Adventure,English
+29,Captain America: Civil War,2016,90,Action & Adventure,English
+30,The Jungle Book,2016,94,Action & Adventure,English
+39,Moana,2016,95,Action & Adventure,English
+47,Kubo and the Two Strings,2016,97,Action & Adventure,English
+54,Hunt for the Wilderpeople,2016,97,Action & Adventure,English (Australia)
+58,Doctor Strange,2016,89,Action & Adventure,English
+415,Zootopia,2016,98,Comedy,English
+417,La La Land,2016,90,Comedy,English
+432,Paterson,2016,96,Comedy,English
+449,Hunt for the Wilderpeople,2016,97,Comedy,English (Australia)
+455,Love & Friendship,2016,96,Comedy,English
+460,The Nice Guys,2016,91,Comedy,English
+473,Don't Think Twice,2016,98,Comedy,English
+493,The Edge of Seventeen,2016,94,Comedy,English
+611,Moonlight,2016,98,Drama,English
+626,Arrival,2016,94,Drama,English
+638,Manchester by the Sea,2016,96,Drama,English
+653,La La Land,2016,90,Drama,English
+662,Hell or High Water,2016,97,Drama,English
+689,Hidden Figures,2016,93,Drama,English
+698,Paterson,2016,96,Drama,English
+754,The Love Witch,2016,95,Horror,English
+759,Train to Busan,2016,94,Horror,Korean
+768,Don't Breathe,2016,88,Horror,English
+799,Hush,2016,93,Horror,English
+814,The Jungle Book,2016,94,Kids & Family,English
+818,Moana,2016,95,Kids & Family,English
+823,My Life as a Zucchini,2016,99,Kids & Family,French (France)
+867,Pete's Dragon,2016,88,Kids & Family,English
+869,A Monster Calls,2016,86,Kids & Family,English
+1011,Arrival,2016,94,Mystery & Suspense,English
+1023,Hell or High Water,2016,97,Mystery & Suspense,English
+1052,The Salesman,2016,96,Mystery & Suspense,Persian
+1084,10 Cloverfield Lane,2016,90,Mystery & Suspense,English
+1149,Your Name,2016,98,Romance,Japanese
+1209,Arrival,2016,94,Science Fiction & Fantasy,English
+1229,Captain America: Civil War,2016,90,Science Fiction & Fantasy,English
+1242,Kubo and the Two Strings,2016,97,Science Fiction & Fantasy,English
+1255,Doctor Strange,2016,89,Science Fiction & Fantasy,English
+1283,10 Cloverfield Lane,2016,90,Science Fiction & Fantasy,English
+5,Wonder Woman,2017,93,Action & Adventure,English
+6,Dunkirk,2017,92,Action & Adventure,English
+7,Coco,2017,97,Action & Adventure,English
+8,Thor: Ragnarok,2017,93,Action & Adventure,English
+9,Logan,2017,93,Action & Adventure,English
+10,Star Wars: The Last Jedi,2017,90,Action & Adventure,English
+17,War for the Planet of the Apes,2017,94,Action & Adventure,English
+18,Spider-Man: Homecoming,2017,92,Action & Adventure,English
+19,Baby Driver,2017,92,Action & Adventure,English
+27,Blade Runner 2049,2017,88,Action & Adventure,English
+68,The LEGO Batman Movie,2017,90,Action & Adventure,English
+74,Guardians of the Galaxy Vol. 2,2017,85,Action & Adventure,English
+402,Lady Bird,2017,99,Comedy,English
+407,Coco,2017,97,Comedy,English
+411,The Big Sick,2017,98,Comedy,English
+413,Paddington 2,2017,100,Comedy,English (United Kingdom)
+423,Three Billboards Outside Ebbing, Missouri,2017,90,Comedy,English
+436,The Disaster Artist,2017,91,Comedy,English
+443,The Death of Stalin,2017,95,Comedy,English
+456,Logan Lucky,2017,92,Comedy,English
+461,The LEGO Batman Movie,2017,90,Comedy,English
+466,Guardians of the Galaxy Vol. 2,2017,85,Comedy,English
+606,Lady Bird,2017,99,Drama,English
+613,Wonder Woman,2017,93,Drama,English
+618,Dunkirk,2017,92,Drama,English
+623,The Shape of Water,2017,92,Drama,English
+624,Thor: Ragnarok,2017,93,Drama,English
+627,Logan,2017,93,Drama,English
+632,Star Wars: The Last Jedi,2017,90,Drama,English
+641,Call Me by Your Name,2017,94,Drama,English
+646,The Florida Project,2017,96,Drama,English
+649,War for the Planet of the Apes,2017,94,Drama,English
+652,Spider-Man: Homecoming,2017,92,Drama,English
+654,Baby Driver,2017,92,Drama,English
+668,Three Billboards Outside Ebbing, Missouri,2017,90,Drama,English
+674,Blade Runner 2049,2017,88,Drama,English
+688,I, Tonya,2017,90,Drama,English
+699,Phantom Thread,2017,91,Drama,English
+701,Get Out,2017,98,Horror,English
+729,It,2017,86,Horror,English
+764,It Comes at Night,2017,87,Horror,English
+769,The Endless,2017,92,Horror,English
+804,Coco,2017,97,Kids & Family,English
+807,Paddington 2,2017,100,Kids & Family,English (United Kingdom)
+826,The LEGO Batman Movie,2017,90,Kids & Family,English
+859,The Breadwinner,2017,95,Kids & Family,English
+1004,Get Out,2017,98,Mystery & Suspense,English
+1044,The Post,2017,88,Mystery & Suspense,English
+1082,It,2017,86,Mystery & Suspense,English
+1103,The Shape of Water,2017,92,Romance,English
+1105,The Big Sick,2017,98,Romance,English
+1108,Call Me by Your Name,2017,94,Romance,English
+1139,God's Own Country,2017,98,Romance,English (United Kingdom)
+1206,Wonder Woman,2017,93,Science Fiction & Fantasy,English
+1207,The Shape of Water,2017,92,Science Fiction & Fantasy,English
+1208,Thor: Ragnarok,2017,93,Science Fiction & Fantasy,English
+1210,Logan,2017,93,Science Fiction & Fantasy,English
+1213,Star Wars: The Last Jedi,2017,90,Science Fiction & Fantasy,English
+1219,War for the Planet of the Apes,2017,94,Science Fiction & Fantasy,English
+1221,Spider-Man: Homecoming,2017,92,Science Fiction & Fantasy,English
+1228,Blade Runner 2049,2017,88,Science Fiction & Fantasy,English
+1268,Guardians of the Galaxy Vol. 2,2017,85,Science Fiction & Fantasy,English
+0,Black Panther,2018,96,Action & Adventure,English
+2,Mission: Impossible -- Fallout,2018,97,Action & Adventure,English
+4,Spider-Man: Into the Spider-Verse,2018,97,Action & Adventure,English
+15,Incredibles 2,2018,93,Action & Adventure,English
+40,Avengers: Infinity War,2018,85,Action & Adventure,English
+41,Ant-Man and The Wasp,2018,87,Action & Adventure,English
+43,Isle of Dogs,2018,90,Action & Adventure,English
+90,Deadpool 2,2018,84,Action & Adventure,English
+98,Annihilation,2018,88,Action & Adventure,English
+403,BlacKkKlansman,2018,96,Comedy,English
+405,Eighth Grade,2018,99,Comedy,English
+429,Crazy Rich Asians,2018,91,Comedy,English
+434,Sorry to Bother You,2018,93,Comedy,English
+435,Ant-Man and The Wasp,2018,87,Comedy,English
+438,Isle of Dogs,2018,90,Comedy,English
+494,Deadpool 2,2018,84,Comedy,English
+500,Won't You Be My Neighbor?,2018,97,Documentary,English
+600,Black Panther,2018,96,Drama,English
+607,Mission: Impossible -- Fallout,2018,97,Drama,English
+608,BlacKkKlansman,2018,96,Drama,English
+614,A Star Is Born,2018,90,Drama,English
+616,A Quiet Place,2018,96,Drama,English
+617,Roma,2018,95,Drama,Spanish
+628,The Favourite,2018,93,Drama,English (United Kingdom)
+639,Leave No Trace,2018,100,Drama,English
+648,Widows,2018,91,Drama,English
+658,Shoplifters,2018,99,Drama,Japanese
+682,First Man,2018,87,Drama,English
+695,The Hate U Give,2018,97,Drama,English
+702,A Quiet Place,2018,96,Horror,English
+712,Hereditary,2018,89,Horror,English
+766,In Fabric,2018,91,Horror,English (United Kingdom)
+772,Cam,2018,93,Horror,English
+775,Upgrade,2018,88,Horror,English
+784,Halloween,2018,79,Horror,English
+802,Spider-Man: Into the Spider-Verse,2018,97,Kids & Family,English
+808,Incredibles 2,2018,93,Kids & Family,English
+854,Ralph Breaks the Internet,2018,88,Kids & Family,English
+880,Teen Titans GO! to the Movies,2018,91,Kids & Family,English
+1003,Mission: Impossible -- Fallout,2018,97,Mystery & Suspense,English
+1007,A Quiet Place,2018,96,Mystery & Suspense,English
+1071,Burning,2018,95,Mystery & Suspense,Korean
+1077,Searching,2018,92,Mystery & Suspense,English
+1093,Border,2018,97,Mystery & Suspense,Swedish
+1124,Ash Is Purest White,2018,99,Romance,Chinese
+1148,Cold War,2018,92,Romance,Polish
+1159,Border,2018,97,Romance,Swedish
+1180,Gloria Bell,2018,91,Romance,English
+1197,To All the Boys I've Loved Before,2018,96,Romance,English
+1200,Black Panther,2018,96,Science Fiction & Fantasy,English
+1205,Spider-Man: Into the Spider-Verse,2018,97,Science Fiction & Fantasy,English
+1234,Sorry to Bother You,2018,93,Science Fiction & Fantasy,English
+1237,Avengers: Infinity War,2018,85,Science Fiction & Fantasy,English
+1238,Ant-Man and The Wasp,2018,87,Science Fiction & Fantasy,English
+1291,Border,2018,97,Science Fiction & Fantasy,Swedish
+1293,Annihilation,2018,88,Science Fiction & Fantasy,English
+1,Avengers: Endgame,2019,94,Action & Adventure,English
+14,Spider-Man: Far From Home,2019,90,Action & Adventure,English
+24,Shazam!,2019,90,Action & Adventure,English
+57,John Wick: Chapter 3 -- Parabellum,2019,89,Action & Adventure,English
+75,The Peanut Butter Falcon,2019,94,Action & Adventure,English
+78,Captain Marvel,2019,79,Action & Adventure,English
+401,Toy Story 4,2019,97,Comedy,English
+406,Booksmart,2019,96,Comedy,English
+409,The Farewell,2019,97,Comedy,English
+414,Once Upon a Time... In Hollywood,2019,85,Comedy,English
+464,Fighting With My Family,2019,93,Comedy,English
+475,Saint Frances,2019,99,Comedy,English
+479,Blow the Man Down,2019,98,Comedy,English
+602,Parasite,2019,98,Drama,Korean
+603,Avengers: Endgame,2019,94,Drama,English
+605,Knives Out,2019,97,Drama,English
+609,The Irishman,2019,95,Drama,English
+619,Portrait of a Lady on Fire,2019,98,Drama,French (France)
+620,The Farewell,2019,97,Drama,English
+631,Marriage Story,2019,94,Drama,English
+635,Once Upon a Time... In Hollywood,2019,85,Drama,English
+642,1917,2019,89,Drama,English
+657,Pain and Glory,2019,96,Drama,Spanish (Spain)
+680,Dolemite Is My Name,2019,97,Drama,English
+687,The Lighthouse,2019,90,Drama,English
+700,Us,2019,93,Horror,English
+711,The Lighthouse,2019,90,Horror,English
+736,Ready or Not,2019,88,Horror,English
+737,La llorona,2019,98,Horror,Spanish
+743,Midsommar,2019,83,Horror,English
+753,Harpoon,2019,97,Horror,English
+771,The Mortuary Collection,2019,95,Horror,English
+790,Color Out of Space,2019,86,Horror,English
+800,Toy Story 4,2019,97,Kids & Family,English
+844,How to Train Your Dragon: The Hidden World,2019,90,Kids & Family,English
+875,The Kid Who Would Be King,2019,89,Kids & Family,English
+879,Klaus,2019,94,Kids & Family,English
+1001,Knives Out,2019,97,Mystery & Suspense,English
+1002,Us,2019,93,Mystery & Suspense,English
+1005,The Irishman,2019,95,Mystery & Suspense,English
+1076,Blow the Man Down,2019,98,Mystery & Suspense,English
+1083,The Vast of Night,2019,92,Mystery & Suspense,English
+1140,Saint Frances,2019,99,Romance,English
+1158,Atlantics,2019,96,Romance,Wolof
+1201,Avengers: Endgame,2019,94,Science Fiction & Fantasy,English
+1202,Toy Story 4,2019,97,Science Fiction & Fantasy,English
+1216,Spider-Man: Far From Home,2019,90,Science Fiction & Fantasy,English
+1223,Shazam!,2019,90,Science Fiction & Fantasy,English
+1232,The Lighthouse,2019,90,Science Fiction & Fantasy,English
+1272,Captain Marvel,2019,79,Science Fiction & Fantasy,English
+1279,The Vast of Night,2019,92,Science Fiction & Fantasy,English
+79,Onward,2020,88,Action & Adventure,English
+448,Palm Springs,2020,95,Comedy,English
+469,The Forty-Year-Old Version,2020,98,Comedy,English
+656,Never Rarely Sometimes Always,2020,99,Drama,English
+707,The Invisible Man,2020,91,Horror,English
+725,Host,2020,100,Horror,English (United Kingdom)
+730,Possessor: Uncut,2020,93,Horror,English
+731,Relic,2020,92,Horror,English
+746,Spontaneous,2020,98,Horror,English
+778,The Dark and the Wicked,2020,92,Horror,English
+833,Onward,2020,88,Kids & Family,English
+1018,The Invisible Man,2020,91,Mystery & Suspense,English
+1049,His House,2020,100,Mystery & Suspense,English (United Kingdom)
+1072,The Trial of the Chicago 7,2020,89,Mystery & Suspense,English
+1092,Possessor: Uncut,2020,93,Mystery & Suspense,English
+1168,The Half of It,2020,97,Romance,English
+1190,Shithouse,2020,97,Romance,English
+1220,The Invisible Man,2020,91,Science Fiction & Fantasy,English
+1273,Onward,2020,88,Science Fiction & Fantasy,English
+1290,Possessor: Uncut,2020,93,Science Fiction & Fantasy,English
