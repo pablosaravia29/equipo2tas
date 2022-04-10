@@ -7,7 +7,7 @@ package ucu.edu.uy.ut3.ta16;
 
 
 import ucu.edu.uy.tda.*;
-import ucu.edu.uy.util.*;
+
 /**
  *
  * @author nnavarro
@@ -25,28 +25,17 @@ public class Main
         /*
         ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("0");
         INodo<Pelicula> nodoPelicula = peliculas.getPrimero();
-        while(nodoPelicula != null){
-            System.out.println("AAAAAAAAAAAAAAAAAAA");
-            Pelicula pelicula = (Pelicula) nodoPelicula.getDato();
-            pelicula.imprimir();
+        while (nodoPelicula != null) {
+            nodoPelicula.getDato().imprimir();
             nodoPelicula = nodoPelicula.getSiguiente();
         }
-        if(nodoPelicula == null){
-            System.out.println("No hay peliculas");
-        }*/
-
-
-        ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("860");
-
+        */
+        ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("780");
         INodo<Participante> nodoParticipante = participantesPeli.getPrimero();
-
         while(nodoParticipante != null){
-            System.out.println("AAAAAAAAAAAAAAAAAAA");
-            Participante participante = (Participante) nodoParticipante.getDato();
-            participante.imprimir();
+            nodoParticipante.getDato().imprimir();
             nodoParticipante = nodoParticipante.getSiguiente();
         }
         
     }
-
 }

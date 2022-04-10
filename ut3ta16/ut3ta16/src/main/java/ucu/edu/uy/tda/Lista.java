@@ -11,16 +11,7 @@ public class Lista<T> implements ILista<T> {
         primero = null;
         //ultimo = null;
     }
-
-    public void insertar(Nodo<T> nodo) {
-        if (esVacio()) {
-            primero = nodo;
-        } else {
-            nodo.setSiguiente(primero);
-            primero = nodo;
-        }
-    }
-
+    
     @Override
     public Nodo<T> buscar(Comparable clave) {
         Nodo<T> aux = primero;
@@ -70,17 +61,14 @@ public class Lista<T> implements ILista<T> {
         }
         return false;
     }
-
+    
     @Override
     public String imprimir() {
         String aux = "";
         if (!esVacia()) {
             Nodo<T> temp = primero;
-            while (temp != null) {
-                temp.imprimirEtiqueta();
-                temp = temp.getSiguiente();
+            temp.imprimirEtiqueta();
             }
-        }
         return aux;
     }
 
@@ -95,12 +83,10 @@ public class Lista<T> implements ILista<T> {
                 aux = aux + separador + temp.getSiguiente().getEtiqueta();
                 temp = temp.getSiguiente();
             }
-
         }
         return aux;
-
     }
-
+   
     @Override
     public int cantElementos() {
         int contador = 0;
@@ -153,5 +139,26 @@ public class Lista<T> implements ILista<T> {
         }
         return false;
     }
-    
+    /*
+    @Override
+    public void insertar2(Nodo<T> nodo) {
+        if (esVacia()) {
+            primero = nodo;
+        } else {
+            Nodo<T> aux = primero;
+            while (aux.getSiguiente() != null) {
+                aux = aux.getSiguiente();
+            }
+            aux.setSiguiente(nodo);
+        }
+    }
+    */
+    public void insertar(Nodo<T> nodo) {
+        if (esVacio()) {
+            primero = nodo;
+        } else {
+            nodo.setSiguiente(primero);
+            primero = nodo;
+        }
+    }
 }
