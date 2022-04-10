@@ -6,7 +6,6 @@ package ucu.edu.uy.ut3.ta16;
 
 import ucu.edu.uy.tda.ILista;
 import ucu.edu.uy.tda.Lista;
-import ucu.edu.uy.tda.ListaOrdenada;
 import ucu.edu.uy.tda.Nodo;
 import ucu.edu.uy.tda.*;
 import ucu.edu.uy.util.*;
@@ -31,8 +30,8 @@ public class Productora
     public void cargarDatos() {
         ManejadorArchivosGenerico manejadorArchivos = new ManejadorArchivosGenerico();
 
+        // cargar peliculas
         String[] lineasArchivo = manejadorArchivos.leerArchivo(ARCHIVO_PELIS);
-
         for (String linea : lineasArchivo) {
             String[] pelis = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
             try {
@@ -44,10 +43,8 @@ public class Productora
             }
         }
 
-
         // cargar datos de personas
         String[] lineasArchivo2 = manejadorArchivos.leerArchivo(ARCHIVO_PERSONAS);
-
         for(String linea : lineasArchivo2){
             String[] personas = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
             try {
@@ -61,7 +58,6 @@ public class Productora
 
         // cargar datos de personas en peliculas
         String[] lineasArchivo3 = manejadorArchivos.leerArchivo(ARCHIVO_PERSONAS_EN_PELIS);
-
         for(String linea : lineasArchivo3){
             String[] personasEnPelis = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
             try {
@@ -79,17 +75,16 @@ public class Productora
         }
 
     }
-    public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula)
-    {
+
+    // obtengo una lista de participantes que participan en una pelicula
+    public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula){
         ILista<Participante> listaResultado = new Lista<>();
         INodo<Pelicula> pelicula = peliculas.buscar(idPelicula);
-        if (pelicula != null)
-        {
+        if (pelicula != null){
             Pelicula peli = (Pelicula) pelicula.getDato();
             Nodo<Participante> participante = peli.getListaParticipantes().getPrimero();
-            while (participante != null)
-            {
-                Nodo<Participante> participanteAInsertar = participante;
+            while (participante != null){
+                Nodo<Participante> participanteAInsertar = new Nodo<>(participante.getDato().getId(), participante.getDato());
                 listaResultado.insertar(participanteAInsertar);
                 participante = participante.getSiguiente();
             }
@@ -97,25 +92,21 @@ public class Productora
         return listaResultado;
     }
 
-    // obtener peliculas del participante
-    public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante)
-    {
+    // obtengo una lista de peliculas que participan en un participante
+    public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante){
         Nodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         ILista<Pelicula> listaResultado = new Lista<>();
-        while (nodoPelicula != null)
-        {
+        while (nodoPelicula != null){
             Pelicula pelicula = (Pelicula) nodoPelicula.getDato();
             Nodo<Participante> nodoParticipante = pelicula.getListaParticipantes().buscar(idParticipante);
-            if (nodoParticipante != null)
-            {
-                Nodo<Pelicula> temp = nodoPelicula;
-                listaResultado.insertar(temp);
+            if (nodoParticipante != null){ 
+                Nodo<Pelicula> peliculaAInsertar = new Nodo<Pelicula>(pelicula.getId(), pelicula);
+                listaResultado.insertar(peliculaAInsertar);
             }
             nodoPelicula = nodoPelicula.getSiguiente();
         }
         return listaResultado;
     }
-
 }
 
 

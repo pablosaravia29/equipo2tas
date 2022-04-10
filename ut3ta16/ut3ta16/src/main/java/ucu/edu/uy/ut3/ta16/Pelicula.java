@@ -101,5 +101,4 @@ public class Pelicula {
         System.out.println("Idioma original: " + this.idiomaOriginal);
         System.out.println("Lista de participantes: " + this.listaParticipantes.imprimir());
     }
-
 }
