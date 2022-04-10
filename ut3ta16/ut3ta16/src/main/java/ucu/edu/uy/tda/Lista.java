@@ -1,15 +1,18 @@
 package ucu.edu.uy.tda;
+import ucu.edu.uy.ut3.ta16.*;
 
 public class Lista<T> implements ILista<T> {
 
-    private Nodo<T> primero;
+    private Nodo<T> primero = null;
+
+    //private Nodo<T> ultimo = null;
 
     public Lista() {
         primero = null;
+        //ultimo = null;
     }
 
-    @Override
-    public void insertar(Nodo<T> unNodo) {
+    public void insertar(Nodo<T> nodo) {
         if (esVacio()) {
             primero = nodo;
         } else {
@@ -20,8 +23,22 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public Nodo<T> buscar(Comparable clave) {
-        // Implementar método
+        Nodo<T> aux = primero;
+        while (aux != null) {
+            if (aux.getEtiqueta().equals(clave.toString())) {
+                return aux;
+            }
+            aux = aux.getSiguiente();
+        }
+        return null;
     }
+
+
+    public boolean esVacio(){
+        return this.primero == null;
+    }
+
+
 
     @Override
     public boolean eliminar(Comparable clave) {
@@ -114,4 +131,27 @@ public class Lista<T> implements ILista<T> {
     public void setPrimero(Nodo<T> unNodo) {
         this.primero = unNodo;
     }
+
+    //@Override
+    //public Nodo<T> getUltimo() {
+    //    return ultimo;
+   // }
+
+    //@Override
+    //public void setUltimo(Nodo<T> unNodo) {
+    //    this.ultimo = unNodo;
+    //}
+
+    //lista contiene nodo especifico
+    public boolean contiene(Pelicula pelicula){
+        Nodo<T> aux = primero;
+        while (aux != null) {
+            if (aux.getEtiqueta().equals(pelicula)) {
+                return true;
+            }
+            aux = aux.getSiguiente();
+        }
+        return false;
+    }
+    
 }

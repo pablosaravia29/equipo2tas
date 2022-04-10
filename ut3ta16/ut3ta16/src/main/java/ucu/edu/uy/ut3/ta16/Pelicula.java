@@ -30,7 +30,7 @@ public class Pelicula {
         this.score = score;
         this.genero = genero;
         this.idiomaOriginal = idiomaOriginal;
-        this.listaParticipantes = new Lista <>();
+        this.listaParticipantes = new Lista<>();
     }
 
     public int getId() {
@@ -90,5 +90,16 @@ public class Pelicula {
     }
     
     
+  
+    
+    public void imprimir(){
+        System.out.println("ID: " + this.id);
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Año: " + this.anio);
+        System.out.println("Score: " + this.score);
+        System.out.println("Genero: " + this.genero);
+        System.out.println("Idioma original: " + this.idiomaOriginal);
+        System.out.println("Lista de participantes: " + this.listaParticipantes.imprimir());
+    }
 
 }
