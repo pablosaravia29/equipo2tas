@@ -22,20 +22,26 @@ public class Main
     {
         Productora productora = new Productora();
         productora.cargarDatos();
-        /*
-        ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("0");
+        
+        Nodo<Pelicula> pelicula = productora.peliculas.buscar(50);
+        System.out.println(pelicula == null);
+        
+        ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante(0);
         INodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         while (nodoPelicula != null) {
             nodoPelicula.getDato().imprimir();
             nodoPelicula = nodoPelicula.getSiguiente();
         }
-        */
+        
+
+        /*
+        
         ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("780");
         INodo<Participante> nodoParticipante = participantesPeli.getPrimero();
         while(nodoParticipante != null){
             nodoParticipante.getDato().imprimir();
             nodoParticipante = nodoParticipante.getSiguiente();
         }
-        
+        */
     }
 }

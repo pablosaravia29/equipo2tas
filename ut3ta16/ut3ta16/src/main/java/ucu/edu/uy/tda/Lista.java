@@ -139,20 +139,7 @@ public class Lista<T> implements ILista<T> {
         }
         return false;
     }
-    /*
-    @Override
-    public void insertar2(Nodo<T> nodo) {
-        if (esVacia()) {
-            primero = nodo;
-        } else {
-            Nodo<T> aux = primero;
-            while (aux.getSiguiente() != null) {
-                aux = aux.getSiguiente();
-            }
-            aux.setSiguiente(nodo);
-        }
-    }
-    */
+
     public void insertar(Nodo<T> nodo) {
         if (esVacio()) {
             primero = nodo;

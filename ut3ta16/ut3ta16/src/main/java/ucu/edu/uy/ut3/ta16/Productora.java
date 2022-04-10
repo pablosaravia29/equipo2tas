@@ -63,10 +63,10 @@ public class Productora
             try {
                 Nodo<Pelicula> nodoPelicula = peliculas.buscar(parseInt(personasEnPelis[1]));
                 if(nodoPelicula != null){
-                    Pelicula peliculaEncontrada = (Pelicula) nodoPelicula.getDato();
+                    Pelicula peliculaEncontrada = nodoPelicula.getDato();
                     Nodo<Participante> nodoParticipante = participantes.buscar(parseInt(personasEnPelis[0]));
                     if(nodoParticipante != null){
-                        peliculaEncontrada.getListaParticipantes().insertar(nodoParticipante);
+                        peliculaEncontrada.getListaParticipantes().insertar(nodoParticipante.clonar());
                     }
                 }
             } catch (Exception e) {
@@ -84,8 +84,8 @@ public class Productora
             Pelicula peli = (Pelicula) pelicula.getDato();
             Nodo<Participante> participante = peli.getListaParticipantes().getPrimero();
             while (participante != null){
-                Nodo<Participante> participanteAInsertar = new Nodo<>(participante.getDato().getId(), participante.getDato());
-                listaResultado.insertar(participanteAInsertar);
+                //Nodo<Participante> participanteAInsertar = new Nodo<>(participante.getDato().getId(), participante.getDato());
+                listaResultado.insertar(participante.clonar());
                 participante = participante.getSiguiente();
             }
         }
@@ -95,13 +95,13 @@ public class Productora
     // obtengo una lista de peliculas que participan en un participante
     public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante){
         Nodo<Pelicula> nodoPelicula = peliculas.getPrimero();
-        ILista<Pelicula> listaResultado = new Lista<>();
+        ILista<Pelicula> listaResultado = new ListaOrdenada<>();
         while (nodoPelicula != null){
-            Pelicula pelicula = (Pelicula) nodoPelicula.getDato();
+            Pelicula pelicula = nodoPelicula.getDato();
             Nodo<Participante> nodoParticipante = pelicula.getListaParticipantes().buscar(idParticipante);
             if (nodoParticipante != null){ 
-                Nodo<Pelicula> peliculaAInsertar = new Nodo<Pelicula>(pelicula.getId(), pelicula);
-                listaResultado.insertar(peliculaAInsertar);
+                //Nodo<Pelicula> peliculaAInsertar = new Nodo<Pelicula>(pelicula.getNombre(), pelicula);
+                listaResultado.insertar(nodoPelicula.clonar());
             }
             nodoPelicula = nodoPelicula.getSiguiente();
         }
