@@ -25,6 +25,8 @@ public class Productora
     public ILista<Participante> participantes = new Lista<>();
     public ILista<Pelicula> peliculas = new Lista<>();
 
+
+
     // cargar datos con declaraciones try y catch
     public void cargarDatos() {
         ManejadorArchivosGenerico manejadorArchivos = new ManejadorArchivosGenerico();
@@ -41,6 +43,7 @@ public class Productora
                 System.out.println("Error al insertar pelicula: " + e.getMessage());
             }
         }
+
 
         // cargar datos de personas
         String[] lineasArchivo2 = manejadorArchivos.leerArchivo(ARCHIVO_PERSONAS);
@@ -76,7 +79,6 @@ public class Productora
         }
 
     }
-
     public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula)
     {
         ILista<Participante> listaResultado = new Lista<>();
@@ -113,4 +115,7 @@ public class Productora
         }
         return listaResultado;
     }
+
 }
+
+

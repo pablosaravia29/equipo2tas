@@ -22,6 +22,7 @@ public class Main
     {
         Productora productora = new Productora();
         productora.cargarDatos();
+        /*
         ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("0");
         INodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         while(nodoPelicula != null){
@@ -32,10 +33,19 @@ public class Main
         }
         if(nodoPelicula == null){
             System.out.println("No hay peliculas");
+        }*/
+
+
+        ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("860");
+
+        INodo<Participante> nodoParticipante = participantesPeli.getPrimero();
+
+        while(nodoParticipante != null){
+            System.out.println("AAAAAAAAAAAAAAAAAAA");
+            Participante participante = (Participante) nodoParticipante.getDato();
+            participante.imprimir();
+            nodoParticipante = nodoParticipante.getSiguiente();
         }
-
-
-        ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("1278");
         
     }
 

@@ -4,6 +4,8 @@
  */
 package ucu.edu.uy.ut3.ta16;
 
+import ucu.edu.uy.tda.ILista;
+
 /**
  *
  * @author nnavarro
@@ -38,6 +40,14 @@ public class Participante
     {
         this.nombre = nombre;
     }
+
+    public ILista<Pelicula> getListaPeliculas() {
+        return null;
+    }
     
+    //imprimir
+    public void imprimir() {
+        System.out.println("ID: " + this.id + " Nombre: " + this.nombre);
+    }
     
 }

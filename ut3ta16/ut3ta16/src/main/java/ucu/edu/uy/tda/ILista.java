@@ -1,4 +1,7 @@
 package ucu.edu.uy.tda;
+
+import ucu.edu.uy.ut3.ta16.Pelicula;
+
 public interface ILista<T> {
 
     /**
@@ -59,6 +62,12 @@ public interface ILista<T> {
     
     public Nodo<T> getPrimero();
 
+    //public void setUltimo(Nodo<T> unNodo);
+
+    //public Nodo<T> getUltimo();
+
     public boolean esVacio();
+
+    public boolean contiene(Pelicula pelicula);
 
 }
