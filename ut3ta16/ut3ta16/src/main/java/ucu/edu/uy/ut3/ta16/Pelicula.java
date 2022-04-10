@@ -19,8 +19,6 @@ public class Pelicula {
     private String genero;
     private String idiomaOriginal;
     private ILista<Participante> listaParticipantes = new Lista<>();
-    //private ListaOrdenada<Participante> listaParticipantes = new ListaOrdenada<>();
-    //private ILista<Participante> listaParticipantes = new ListaOrdenada<>();
 
     public Pelicula() {
     }
@@ -32,7 +30,6 @@ public class Pelicula {
         this.score = score;
         this.genero = genero;
         this.idiomaOriginal = idiomaOriginal;
-        //this.listaParticipantes = new Lista<>();
     }
 
     public int getId() {

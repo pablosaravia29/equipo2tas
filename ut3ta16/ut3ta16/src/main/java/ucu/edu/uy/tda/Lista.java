@@ -5,11 +5,8 @@ public class Lista<T> implements ILista<T> {
 
     private Nodo<T> primero = null;
 
-    //private Nodo<T> ultimo = null;
-
     public Lista() {
         primero = null;
-        //ultimo = null;
     }
     
     @Override
@@ -28,8 +25,6 @@ public class Lista<T> implements ILista<T> {
     public boolean esVacio(){
         return this.primero == null;
     }
-
-
 
     @Override
     public boolean eliminar(Comparable clave) {
@@ -116,28 +111,6 @@ public class Lista<T> implements ILista<T> {
     @Override
     public void setPrimero(Nodo<T> unNodo) {
         this.primero = unNodo;
-    }
-
-    //@Override
-    //public Nodo<T> getUltimo() {
-    //    return ultimo;
-   // }
-
-    //@Override
-    //public void setUltimo(Nodo<T> unNodo) {
-    //    this.ultimo = unNodo;
-    //}
-
-    //lista contiene nodo especifico
-    public boolean contiene(Pelicula pelicula){
-        Nodo<T> aux = primero;
-        while (aux != null) {
-            if (aux.getEtiqueta().equals(pelicula)) {
-                return true;
-            }
-            aux = aux.getSiguiente();
-        }
-        return false;
     }
 
     public void insertar(Nodo<T> nodo) {

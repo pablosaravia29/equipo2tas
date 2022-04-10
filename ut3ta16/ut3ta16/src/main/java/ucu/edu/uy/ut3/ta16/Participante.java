@@ -45,7 +45,6 @@ public class Participante
         return null;
     }
     
-    //imprimir
     public void imprimir() {
         System.out.println("ID: " + this.id + " Nombre: " + this.nombre);
     }

@@ -68,6 +68,4 @@ public interface ILista<T> {
 
     public boolean esVacio();
 
-    public boolean contiene(Pelicula pelicula);
-
 }
