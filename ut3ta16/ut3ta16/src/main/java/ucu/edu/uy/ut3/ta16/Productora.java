@@ -22,7 +22,6 @@ public class Productora {
 
     public void cargarPeliculas(String ruta) {
         ManejadorArchivosGenerico manejadorArchivos = new ManejadorArchivosGenerico();
-
         String[] lineasArchivo = manejadorArchivos.leerArchivo(ruta);
         for (String linea : lineasArchivo) {
             String[] pelis = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
@@ -37,9 +36,7 @@ public class Productora {
     }
 
     public void cargarParticipantes(String ruta) {
-
         ManejadorArchivosGenerico manejadorArchivos = new ManejadorArchivosGenerico();
-
         String[] lineasArchivo2 = manejadorArchivos.leerArchivo(ruta);
         for (String linea : lineasArchivo2) {
             String[] personas = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
@@ -54,9 +51,7 @@ public class Productora {
     }
 
     public void cargarPersonasQueParticipanEnPeliculas(String ruta) {
-
         ManejadorArchivosGenerico manejadorArchivos = new ManejadorArchivosGenerico();
-
         String[] lineasArchivo3 = manejadorArchivos.leerArchivo(ruta);
         for (String linea : lineasArchivo3) {
             String[] personasEnPelis = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
@@ -93,7 +88,6 @@ public class Productora {
 
     // obtengo una lista de peliculas actuadas por un mismo participante
     public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante) {
-
         Nodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         ILista<Pelicula> listaResultado = new ListaOrdenada<>();
         while (nodoPelicula != null) {
@@ -105,12 +99,10 @@ public class Productora {
             }
             nodoPelicula = nodoPelicula.getSiguiente();
         }
-        
         return listaResultado;
     }
 
     public void imprimirPeliculasDelParticipante(ILista<Pelicula> peliculasImprimir) {
-
         INodo<Pelicula> nodoPelicula = peliculasImprimir.getPrimero();
         while (nodoPelicula != null) {
             nodoPelicula.getDato().imprimir();
@@ -125,5 +117,4 @@ public class Productora {
             nodoParticipante = nodoParticipante.getSiguiente();
         }
     }
-
 }

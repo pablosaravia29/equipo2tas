@@ -85,36 +85,21 @@ public class ProductoraTest
     
     @Test
     public void obtenerParticipantesPeliculaTest(){
-        /* Nodo<Participante> nodoParticipante = new Nodo<Participante>(p1.getId(), p1);
-        lista.insertar(nodoParticipante);
-        Nodo<Participante> resultado = lista.buscar(0);
-        System.out.println(resultado == null); */
-        productora.cargarParticipantes("C:\\Java\\NetBeansProjects\\AED1\\equipo2tas\\ut3ta16\\ut3ta16\\PersonasTest.csv");
+        productora.cargarParticipantes("PersonasTest.csv");
         productora.obtenerParticipantesPelicula(84);
         assertEquals(0, p1.getId());
-    }
-    
-    @Test
-    public void obtenerPeliculasDelParticipanteTest(){
-        
-
     }
 
     // test de cargarDatos
     @Test
     public void cargarDatosTest()
-    {/*
-        Productora productora = new Productora();
-        productora.cargarDatos();
-        assertEquals(productora.getParticipantes().getTamanio(), 5);
-        assertEquals(productora.getPeliculas().getTamanio(), 5);*/
+    {
     }
 
     // test peliculas de un participante por id
     @Test
-    public void obtenerPeliculasDelParticipanteTest2()
+    public void obtenerPeliculasDelParticipanteTest()
     {
-        //Productora productora = new Productora();
         ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("0");
         INodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         while (nodoPelicula != null)
@@ -123,5 +108,4 @@ public class ProductoraTest
             nodoPelicula = nodoPelicula.getSiguiente();
         }
     }
-
 }

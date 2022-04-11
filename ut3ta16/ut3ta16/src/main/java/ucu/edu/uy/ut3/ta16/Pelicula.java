@@ -88,9 +88,7 @@ public class Pelicula {
         this.listaParticipantes = listaParticipantes;
     }
   
-    
     public void imprimir(){
-        
         System.out.println("ID: " + this.id);
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Año: " + this.anio);
