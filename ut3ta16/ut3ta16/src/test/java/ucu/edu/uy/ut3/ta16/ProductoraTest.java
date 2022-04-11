@@ -1,7 +1,3 @@
-/*
- * NO LICENCE 
- * Author: Ing. Nicolás Navarro Gutérrez
- */
 package ucu.edu.uy.ut3.ta16;
 
 import org.junit.jupiter.api.AfterEach;
@@ -19,11 +15,23 @@ import ucu.edu.uy.ut3.ta16.*;
  */
 public class ProductoraTest
 {
-    private Productora productora = new Productora();
+    public Productora productora;
 
-    Lista<Participante> lista = new Lista<Participante>();
-    Participante p1 = new Participante(0, "Pablo");
-    
+    public Participante p1;
+    public Participante p2;
+    public Participante p3;
+    public Participante p4;
+    public Participante p5;    
+    public Participante p6;
+
+    public Lista<Participante> lista;
+    public Pelicula peli1;
+    public Pelicula peli2;
+    public Pelicula peli3;
+    public Pelicula peli4;
+    public Pelicula peli5;
+
+    public Lista<Pelicula> listaPeliculasDeParticipante1;
     
     public ProductoraTest()
     {
@@ -43,20 +51,24 @@ public class ProductoraTest
     
     @BeforeEach
     public void setUp(){
-        Productora productora = new Productora();
-        productora.cargarDatos();
+        productora = new Productora();
 
+        lista = new Lista<Participante>();
 
-        Lista<Participante> lista = new Lista<Participante>();
-        Participante p1 = new Participante(0, "Pablo");
-        Participante p2 = new Participante(1, "Levi");
-        Participante p3 = new Participante(2, "Alejandra");
-        Participante p4 = new Participante(3, "Rafael");
-        Participante p5 = new Participante(4, "Fabio");
-        
-        
-        
+        p1 = new Participante(0,"Bill Paterson");
+        p2 = new Participante(1,"Guillermo Navarro");
+        p3 = new Participante(2, "Diana Lin");
+        p4 = new Participante(3, "Mckenna Grace");
+        p5 = new Participante(4, "Steven Yeun");
+        p6 = new Participante(5,"Michael Dorman");
 
+        peli1 = new Pelicula(84,"Henry V",1989,100,"Action & Adventure","English");
+        peli2 = new Pelicula(849,"Kiki's Delivery Service",1989,98,"Kids & Family","Japanese");
+        peli3 = new Pelicula(860,"The Little Mermaid",1989,93,"Kids & Family","English");
+        peli4 = new Pelicula(781,"Arachnophobia",1990,93,"Horror","English");
+        peli5 = new Pelicula(1162,"Say Anything...",1989,98,"Romance","English");
+
+        listaPeliculasDeParticipante1 = new Lista<Pelicula>();
 
     }
     
@@ -73,14 +85,18 @@ public class ProductoraTest
     
     @Test
     public void obtenerParticipantesPeliculaTest(){
-        Nodo<Participante> nodoParticipante = new Nodo<Participante>(p1.getId(), p1);
+        /* Nodo<Participante> nodoParticipante = new Nodo<Participante>(p1.getId(), p1);
         lista.insertar(nodoParticipante);
         Nodo<Participante> resultado = lista.buscar(0);
-        System.out.println(resultado == null);
+        System.out.println(resultado == null); */
+        productora.cargarParticipantes("C:\\Java\\NetBeansProjects\\AED1\\equipo2tas\\ut3ta16\\ut3ta16\\PersonasTest.csv");
+        productora.obtenerParticipantesPelicula(84);
+        assertEquals(0, p1.getId());
     }
     
     @Test
     public void obtenerPeliculasDelParticipanteTest(){
+        
 
     }
 
@@ -99,7 +115,6 @@ public class ProductoraTest
     public void obtenerPeliculasDelParticipanteTest2()
     {
         //Productora productora = new Productora();
-        productora.cargarDatos();
         ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("0");
         INodo<Pelicula> nodoPelicula = peliculas.getPrimero();
         while (nodoPelicula != null)

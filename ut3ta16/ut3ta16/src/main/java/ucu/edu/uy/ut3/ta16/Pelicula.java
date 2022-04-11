@@ -90,12 +90,12 @@ public class Pelicula {
   
     
     public void imprimir(){
+        
         System.out.println("ID: " + this.id);
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Año: " + this.anio);
         System.out.println("Score: " + this.score);
         System.out.println("Genero: " + this.genero);
-        System.out.println("Idioma original: " + this.idiomaOriginal);
-        System.out.println("Lista de participantes: " + this.listaParticipantes.imprimir());
+        System.out.println("Idioma original: " + this.idiomaOriginal + "\n");
     }
 }
