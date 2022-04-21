@@ -1,12 +1,12 @@
 package grupo2.ut3_ta6;
 
 public class Corchetes {
-    
-    public boolean controlCorchetes(Character [] listaDeEntrada){
-        Pila pila = new Pila<Character>();
-        for (int i = 0; i < listaDeEntrada.length; i++) {
+
+    public static boolean controlCorchetes(Character[] listaDeEntrada){
+        Pila<Character> pila = new Pila<Character>();
+        for(int i = 0; i < listaDeEntrada.length; i++){
             if(listaDeEntrada[i] == '{'){
-                pila.apilar(listaDeEntrada[i]);
+                pila.apilar(new Nodo<Character>('{', null));
             }
             else if(listaDeEntrada[i] == '}'){
                 if(pila.esVacia()){
@@ -17,6 +17,12 @@ public class Corchetes {
                 }
             }
         }
-        return false;
+        if(pila.esVacia()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
+
