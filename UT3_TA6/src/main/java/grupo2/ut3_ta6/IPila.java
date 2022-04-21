@@ -17,19 +17,19 @@ public interface IPila<T>
      * @param dato
      * @return
      */
-    public boolean apilar(T dato);
+    public void apilar(Nodo<T> dato);
     
     /**
      * Quita del tope de la pila el dato y lo devuelve.
      * @return
      */
-    public T desapilar();
+    public Nodo<T> desapilar();
     
     /**
      * Devuelve el dato del tope de la pila sin quitarlo de la misma.
      * @return
      */
-    public T tope();
+    public Object tope();
     
     /**
      * Devuelve verdadero si la pila no contiene datos.

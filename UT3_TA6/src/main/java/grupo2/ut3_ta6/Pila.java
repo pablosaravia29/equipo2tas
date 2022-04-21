@@ -8,16 +8,37 @@ package grupo2.ut3_ta6;
  *
  * @author Administrador
  */
-public class Pila implements IPila {
+public class Pila<T> implements IPila<T> {
 
-    @Override
-    public boolean apilar(Object dato) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private Nodo<T> primerDatoPila;
+
+    public Pila(){
+        primerDatoPila = null;
     }
 
+    //push
     @Override
-    public Object desapilar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void apilar(Nodo<T> dato) {
+        if(esVacia()){
+            primerDatoPila = dato;
+        }
+        else{
+            dato.setSiguiente(primerDatoPila);
+            primerDatoPila = dato;
+        }
+    }
+
+    //pop
+    @Override
+    public Nodo<T> desapilar() {
+        if(esVacia()){
+            return null;
+        }
+        else{
+            Nodo<T> dato = primerDatoPila.clonar();
+            this.primerDatoPila = primerDatoPila.getSiguiente();
+            return dato;
+        }
     }
 
     @Override
@@ -27,7 +48,7 @@ public class Pila implements IPila {
 
     @Override
     public boolean esVacia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return primerDatoPila == null;
     }
 
     @Override
@@ -39,5 +60,5 @@ public class Pila implements IPila {
     public boolean estaLlena() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

@@ -1,7 +1,5 @@
 package grupo2.ut3_ta6;
 
-import ucu.edu.uy.ut3.ta16.Pelicula;
-
 public interface ILista<T> {
 
     /**
