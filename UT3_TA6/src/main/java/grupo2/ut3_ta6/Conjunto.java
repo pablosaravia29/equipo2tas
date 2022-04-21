@@ -3,7 +3,7 @@ package grupo2.ut3_ta6;
 public class Conjunto<T> extends Lista<T> {
 
 
-    public Nodo insertarElementoDeConjuto(Nodo nodoX) {
+    public Nodo encontrar(Nodo nodoX) {
         return this.buscar(nodoX.getEtiqueta());
     }
     
@@ -23,7 +23,7 @@ public class Conjunto<T> extends Lista<T> {
             nodoA = nodoA.getSiguiente();
         }
         while (nodoB != null) {
-            if (conjuntoResultado.insertarElementoDeConjuto(nodoB) == null) {
+            if (conjuntoResultado.encontrar(nodoB) == null) {
                 conjuntoResultado.insertar(nodoB);
             }
             nodoB = nodoB.getSiguiente();
@@ -40,7 +40,7 @@ public class Conjunto<T> extends Lista<T> {
         Nodo<T> nodoA = this.getPrimero();
 
         while (nodoA != null) {         
-            if (conjuntoX.insertarElementoDeConjuto(nodoA) != null) {
+            if (conjuntoX.encontrar(nodoA) != null) {
                 conjuntoResultado.insertar(nodoA.clonar());
             }
             nodoA = nodoA.getSiguiente();
