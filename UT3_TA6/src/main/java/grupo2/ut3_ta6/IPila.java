@@ -29,7 +29,7 @@ public interface IPila<T>
      * Devuelve el dato del tope de la pila sin quitarlo de la misma.
      * @return
      */
-    public Object tope();
+    public Nodo<T> tope();
     
     /**
      * Devuelve verdadero si la pila no contiene datos.

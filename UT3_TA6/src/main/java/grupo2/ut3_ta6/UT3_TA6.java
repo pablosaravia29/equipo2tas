@@ -12,6 +12,8 @@ package grupo2.ut3_ta6;
 public class UT3_TA6 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Corchetes cor = new Corchetes();
+        System.out.println(cor.controlCorchetes("{{{}}}"));
+        
     }
 }
