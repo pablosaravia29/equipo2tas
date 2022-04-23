@@ -12,17 +12,16 @@ public class Pila<T> implements IPila<T> {
 
     private Nodo<T> primerDatoPila;
 
-    public Pila(){
+    public Pila() {
         primerDatoPila = null;
     }
 
     //push
     @Override
     public void apilar(Nodo<T> dato) {
-        if(esVacia()){
+        if (esVacia()) {
             primerDatoPila = dato;
-        }
-        else{
+        } else {
             dato.setSiguiente(primerDatoPila);
             primerDatoPila = dato;
         }
@@ -31,10 +30,9 @@ public class Pila<T> implements IPila<T> {
     //pop
     @Override
     public Nodo<T> desapilar() {
-        if(esVacia()){
+        if (esVacia()) {
             return null;
-        }
-        else{
+        } else {
             Nodo<T> dato = primerDatoPila.clonar();
             this.primerDatoPila = primerDatoPila.getSiguiente();
             return dato;
@@ -42,8 +40,8 @@ public class Pila<T> implements IPila<T> {
     }
 
     @Override
-    public Object tope() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Nodo<T> tope() {
+        return primerDatoPila;
     }
 
     @Override
@@ -53,7 +51,8 @@ public class Pila<T> implements IPila<T> {
 
     @Override
     public void vaciar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        primerDatoPila = null;
+
     }
 
     @Override
