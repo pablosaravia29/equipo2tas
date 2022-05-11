@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TArbolBBTest {
     
-    TArbolBB<Integer> arbol1;
-    TArbolBB<IElementoAB> arbol2;
-    TArbolBB<IElementoAB> arbol3;
+    TArbolBB arbol1;
+//    TArbolBB<IElementoAB> arbol2;
+//    TArbolBB<IElementoAB> arbol3;
     public TArbolBBTest() {
     }
     
@@ -33,11 +33,11 @@ public class TArbolBBTest {
     
     @BeforeEach
     public void setUp() {
-        arbol1 = new TArbolBB<Integer>();
-        arbol2 = new TArbolBB<IElementoAB>();
-        arbol3 = new TArbolBB<IElementoAB>();
-        
-        arbol1.insertar(new TElementoBB("asdadsadads",1));
+        arbol1 = new TArbolBB();
+//        arbol2 = new TArbolBB<IElementoAB>();
+//        arbol3 = new TArbolBB<IElementoAB>();
+//        
+//        arbol1.insertar(new TElementoBB("asdadsadads",1));
 //        arbol1.insertar(new TElementoBB(" asdads",2));
 //        arbol1.insertar(new TElementoBB(3,5));
 //        arbol1.insertar(new TElementoBB(4,8));
@@ -56,8 +56,8 @@ public class TArbolBBTest {
     @Test
     public void testInsertar(){
         setUp();
-        int tamanioEsperado = 2;
-        boolean a = arbol1.insertar(new TElementoBB<Integer>("dsads",3));
+        int tamanioEsperado = 1;
+        arbol1.insertar(new TElementoBB<>("dsads",null));
         int tamanioFinal = arbol1.tamanio();
         assertEquals(tamanioEsperado, tamanioFinal);
     }
