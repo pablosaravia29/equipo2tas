@@ -79,12 +79,22 @@ public class TArbolBB<T> implements IArbolBB<T>{
 
     @Override
     public int tamanio() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (raiz == null){
+            return -1;
+        }
+        else{
+            return raiz.tamanio();
+        }
     }
 
     @Override
     public int cantHojas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (raiz == null){
+            return 0;
+        }
+        else{
+            return raiz.altura();
+        }
     }
     
 }

@@ -23,5 +23,6 @@ public class UT4TA2 {
                     
             arbolito.insertar(nodi);
         }
+        
     }
 }
