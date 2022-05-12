@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: ut4_ta2.ut4.TArbolBBTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in ut4_ta2.ut4.TArbolBBTest
+testInsertar  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at ut4_ta2.ut4.TArbolBBTest.testInsertar(TArbolBBTest.java:62)
+
