@@ -56,6 +56,13 @@ public class Producto implements IProducto {
         }
     }
 
+    public String toString() {
+        String price = Integer.toString(this.precio);
+        String stock = Integer.toString(this.getStock());
+        String code = this.etiqueta.toString();
+        return ("Etiqueta: " + code + " || Nombre : " + this.nombre + " || Precio : " + price + " || Stock : " + stock);
+    }
+
     @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;

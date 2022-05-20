@@ -1,7 +1,6 @@
 package ucu.edu.uy.tda;
 
-public class TArbolBB<T> implements IArbolBB<T>
-{
+public class TArbolBB<T> implements IArbolBB<T> {
 
     private IElementoAB<T> raiz;
 
@@ -10,8 +9,7 @@ public class TArbolBB<T> implements IArbolBB<T>
      */
     public static final String SEPARADOR_ELEMENTOS_IMPRESOS = "-";
 
-    public TArbolBB()
-    {
+    public TArbolBB() {
         raiz = null;
     }
 
@@ -20,15 +18,11 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return
      */
     @Override
-    public boolean insertar(IElementoAB<T> unElemento)
-    {
-        if (esVacio())
-        {
+    public boolean insertar(IElementoAB<T> unElemento) {
+        if (esVacio()) {
             raiz = unElemento;
             return true;
-        }
-        else
-        {
+        } else {
             return raiz.insertar(unElemento);
         }
     }
@@ -38,8 +32,7 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return
      */
     @Override
-    public IElementoAB<T> buscar(Comparable unaEtiqueta)
-    {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
 //        if (esVacio())
 //        {
 //            return null;
@@ -56,11 +49,9 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return recorrida en inorden del arbol, null en caso de ser vacío
      */
     @Override
-    public Lista<T> inOrden()
-    {
+    public Lista<T> inOrden() {
         Lista<T> unaLista = new Lista<>();
-        if (!esVacio())
-        {
+        if (!esVacio()) {
             raiz.inOrden(unaLista);
         }
         return unaLista;
@@ -70,8 +61,7 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return recorrida en preOrden del arbol, null en caso de ser vacío
      */
     @Override
-    public String preOrden()
-    {
+    public String preOrden() {
 //        if (esVacio())
 //        {
 //            return null;
@@ -87,8 +77,7 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return recorrida en postOrden del arbol, null en caso de ser vacío
      */
     @Override
-    public String postOrden()
-    {
+    public String postOrden() {
 //        if (esVacio())
 //        {
 //            return null;
@@ -101,10 +90,8 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public void eliminar(Comparable unaEtiqueta)
-    {
-        if (!esVacio())
-        {
+    public void eliminar(Comparable unaEtiqueta) {
+        if (!esVacio()) {
             this.raiz = this.raiz.eliminar(unaEtiqueta);
         }
     }
@@ -113,8 +100,7 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return
      */
     @Override
-    public boolean esVacio()
-    {
+    public boolean esVacio() {
         return (raiz == null);
     }
 
@@ -122,10 +108,8 @@ public class TArbolBB<T> implements IArbolBB<T>
      * @return True si habían elementos en el árbol, false en caso contrario
      */
     @Override
-    public boolean vaciar()
-    {
-        if (!esVacio())
-        {
+    public boolean vaciar() {
+        if (!esVacio()) {
             raiz = null;
             return true;
         }
@@ -133,8 +117,7 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public int altura()
-    {
+    public int altura() {
 //        if (esVacio())
 //        {
 //            return -1;
@@ -144,8 +127,7 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public int tamanio()
-    {
+    public int tamanio() {
 //        if (esVacio())
 //        {
 //            return -1;
@@ -155,8 +137,7 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public int nivel(Comparable etiqueta)
-    {
+    public int nivel(Comparable etiqueta) {
 //        if (esVacio())
 //        {
 //            return -1;
@@ -166,9 +147,15 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public IElementoAB<T> getRaiz()
-    {
+    public IElementoAB<T> getRaiz() {
         return this.raiz;
     }
+
+    public String imprimir() {
+        return this.raiz.imprimir();
+    }
+
+
+  
 
 }

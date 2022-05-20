@@ -45,8 +45,6 @@ public interface IElementoAB<T> {
      */
     public IElementoAB<T> buscar(Comparable unaEtiqueta);
 
- 
-
     /**
      * Inserta un elemento dentro del arbol.
      *
@@ -82,34 +80,40 @@ public interface IElementoAB<T> {
      * @return
      */
     public T getDatos();
-	
-	 /**
+
+    /**
      * Elimina un elemento dada una etiqueta.
+     *
      * @param unaEtiqueta
-     * @return 
+     * @return
      */
     public IElementoAB eliminar(Comparable unaEtiqueta);
-    
+
     /**
-     * Devuelve la altura del árbol. Se toma que la raíz es altura cero (0).
-     * Si el árbol es vacío, se retorna -1.
+     * Devuelve la altura del árbol. Se toma que la raíz es altura cero (0). Si
+     * el árbol es vacío, se retorna -1.
+     *
      * @return
      */
     public int altura();
-    
+
     /**
      * Devuelve la cantidad de nodos totales del árbol.
+     *
      * @return
      */
     public int tamanio();
-    
+
     /**
      * Dada una etiqueta devuelve el nivel en el que se encuentra el elemento,
      * de lo contrario devuelve -1.
+     *
      * @param etiqueta
      * @param nivel
      * @return
      */
     public int nivel(Comparable etiqueta, int nivel);
+
+    public String imprimir();
 
 }
