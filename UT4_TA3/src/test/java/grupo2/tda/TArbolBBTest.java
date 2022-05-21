@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package ut4_ta2.ut4;
+package grupo2.tda;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -13,60 +13,57 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Administrador
+ * @author FIT
  */
 public class TArbolBBTest {
-    
-    TArbolBB arbol1;
-//    TArbolBB<IElementoAB> arbol2;
-//    TArbolBB<IElementoAB> arbol3;
+
+   static TArbolBB<Integer> arbol1;
+    TArbolBB<IElementoAB> arbol2;
+    TArbolBB<IElementoAB> arbol3;
+
     public TArbolBBTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
-        arbol1 = new TArbolBB();
-//        arbol2 = new TArbolBB<IElementoAB>();
-//        arbol3 = new TArbolBB<IElementoAB>();
-//        
-//        arbol1.insertar(new TElementoBB("asdadsadads",1));
-//        arbol1.insertar(new TElementoBB(" asdads",2));
-//        arbol1.insertar(new TElementoBB(3,5));
+        arbol1 = new TArbolBB<Integer>();
+        arbol2 = new TArbolBB<IElementoAB>();
+        arbol3 = new TArbolBB<IElementoAB>();
+
+        arbol1.insertar(new TElementoBB<>("asdadsadads", 1));
+        arbol1.insertar(new TElementoBB<>(" asdads", 2));
+        arbol1.insertar(new TElementoBB<>("Hola",5));
 //        arbol1.insertar(new TElementoBB(4,8));
 //        arbol1.insertar(new TElementoBB(5,10));
-  
+
 //        arbol2.insertar(new TElementoBB(1,2));
 //        arbol2.insertar(new TElementoBB(2,4));
 //        arbol2.insertar(new TElementoBB(3,5));
-        
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
 
     @Test
-    public void testInsertar(){
+    public void testInsertar() {
+        System.out.println("insertar");
         setUp();
-        int tamanioEsperado = 1;
-        arbol1.insertar(new TElementoBB<>("dsads",null));
+        int tamanioEsperado = 4;
+        IElementoAB<Integer> unElemento = new TElementoBB<Integer>("198798", 81);
+        boolean a = arbol1.insertar(unElemento);
         int tamanioFinal = arbol1.tamanio();
         assertEquals(tamanioEsperado, tamanioFinal);
     }
-//    /**
-//     * Test of insertar method, of class TArbolBB.
-//     */
-//    @Test
-//    public void testInsertar() {
-//        System.out.println("insertar");
+//
 //        IElementoAB unElemento = null;
 //        TArbolBB instance = new TArbolBB();
 //        boolean expResult = false;
@@ -74,11 +71,18 @@ public class TArbolBBTest {
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
-//    }
 
-    /**
-     * Test of buscar method, of class TArbolBB.
-     */
+    @Test
+    public void testInorden() {
+        System.out.println("inorden");
+        TArbolBB instance = new TArbolBB();
+        Lista expResult = null;
+        Lista result = instance.inorden();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     @Test
     public void testBuscar() {
         System.out.println("buscar");
@@ -91,9 +95,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of preOrden method, of class TArbolBB.
-     */
     @Test
     public void testPreOrden() {
         System.out.println("preOrden");
@@ -105,9 +106,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of inOrden method, of class TArbolBB.
-     */
     @Test
     public void testInOrden() {
         System.out.println("inOrden");
@@ -119,9 +117,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of postOrden method, of class TArbolBB.
-     */
     @Test
     public void testPostOrden() {
         System.out.println("postOrden");
@@ -133,9 +128,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of eliminar method, of class TArbolBB.
-     */
     @Test
     public void testEliminar() {
         System.out.println("eliminar");
@@ -146,9 +138,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of altura method, of class TArbolBB.
-     */
     @Test
     public void testAltura() {
         System.out.println("altura");
@@ -160,9 +149,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of tamanio method, of class TArbolBB.
-     */
     @Test
     public void testTamanio() {
         System.out.println("tamanio");
@@ -174,9 +160,6 @@ public class TArbolBBTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of cantHojas method, of class TArbolBB.
-     */
     @Test
     public void testCantHojas() {
         System.out.println("cantHojas");
@@ -187,5 +170,5 @@ public class TArbolBBTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }
