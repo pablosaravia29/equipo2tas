@@ -30,6 +30,7 @@ public class Main {
         // listar los productos ordenados por codigo, junto con su cantidad existente
         geant.imprimirProductos();
         
+        geant.listarProductosEnArchivo();
         //geant.buscarPorCodigo("")
     }
 }

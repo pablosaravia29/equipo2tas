@@ -56,6 +56,7 @@ public class Producto implements IProducto {
         }
     }
 
+    @Override
     public String toString() {
         String price = Integer.toString(this.precio);
         String stock = Integer.toString(this.getStock());
