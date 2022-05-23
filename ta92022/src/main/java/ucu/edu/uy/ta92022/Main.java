@@ -29,8 +29,17 @@ public class Main {
 
         // listar los productos ordenados por codigo, junto con su cantidad existente
         geant.imprimirProductos();
-        
+
         geant.listarProductosEnArchivo();
-        //geant.buscarPorCodigo("")
+        Producto prod = geant.buscarPorCodigo(1000097);
+        if (prod != null) {
+            System.out.println("Producto encontrado: ");
+
+            System.out.println(prod.toString());
+
+        } else {
+            System.out.println("Producto no encontrado...");
+        }
+
     }
 }

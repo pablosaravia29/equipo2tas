@@ -6,6 +6,7 @@ import ucu.edu.uy.tda.IElementoAB;
 import ucu.edu.uy.tda.ILista;
 import ucu.edu.uy.tda.INodo;
 import ucu.edu.uy.tda.Lista;
+import ucu.edu.uy.tda.ListaOrdenada;
 import ucu.edu.uy.tda.Nodo;
 import ucu.edu.uy.tda.TArbolBB;
 import ucu.edu.uy.tda.TElementoAB;
@@ -86,29 +87,51 @@ public class Almacen implements IAlmacen {
     }
 
     public void listarProductosEnArchivo() {
-        TArbolBB<Producto> arbolResultado = new TArbolBB<Producto>();
-
-        Lista<Producto> unaLista = new Lista<>();
-        this.productos.getRaiz().inOrden(unaLista);
-        INodo<Producto> aux = unaLista.getPrimero();
-
-        String[] lines = new String[productos.getRaiz().tamanio()];
+//        TArbolBB<Producto> arbolResultado = new TArbolBB<Producto>();
+//
+//        Lista<Producto> unaLista = new Lista<>();
+//        this.productos.getRaiz().inOrden(unaLista);
+//        INodo<Producto> aux = unaLista.getPrimero();
+//
+//        String[] lines = new String[productos.getRaiz().tamanio()];
+//        int i = 0;
+//        while (aux != null) {
+//            IElementoAB<Producto> producto = new TElementoAB<>(aux.getDato().getNombre(), aux.getDato());
+//            arbolResultado.insertar(producto);
+//            aux = aux.getSiguiente();
+//        }
+//
+//        Lista<Producto> otraLista = new Lista<>();
+//        arbolResultado.getRaiz().inOrden(otraLista);
+//        aux = otraLista.getPrimero();
+//        while (aux != null) {
+//            lines[i++] = (aux.getEtiqueta() + "," + aux.getDato().getPrecio().toString());
+//            aux = aux.getSiguiente();
+//        }
+//
+//        ManejadorArchivosGenerico.escribirArchivo("productos.txt", lines);
+//    }
+        ListaOrdenada<Producto> listaOrdenada = new ListaOrdenada<>();
+        Lista<Producto> temporal = productos.inOrden();
+        Nodo<Producto> aux = temporal.getPrimero();
+        while (aux != null) {
+            Nodo<Producto> aInsertar = new Nodo(aux.getDato().getNombre(), aux.getDato());
+            listaOrdenada.insertar(aInsertar);
+            aux = aux.getSiguiente();
+        }
+        String[] lineas = new String[listaOrdenada.cantElementos()];
+        Nodo<Producto> temp = listaOrdenada.getPrimero();
         int i = 0;
-        while (aux != null) {
-            IElementoAB<Producto> producto = new TElementoAB<>(aux.getDato().getNombre(), aux.getDato());
-            arbolResultado.insertar(producto);
-            aux = aux.getSiguiente();
+        int valorM = 0;
+        while (temp != null) {
+            valorM += temp.getDato().getPrecio() * temp.getDato().getStock();
+            lineas[i] = temp.getDato().getNombre() + "," + temp.getDato().getPrecio();
+            i++;
+            temp = temp.getSiguiente();
         }
+        ManejadorArchivosGenerico.escribirArchivo("productos.txt", lineas);
+        System.out.println("El valor monetario total es : $" + valorM);
 
-        Lista<Producto> otraLista = new Lista<>();
-        arbolResultado.getRaiz().inOrden(otraLista);
-        aux = otraLista.getPrimero();
-        while (aux != null) {
-            lines[i++] = (aux.getEtiqueta() + "," + aux.getDato().getPrecio().toString());
-            aux = aux.getSiguiente();
-        }
-
-        ManejadorArchivosGenerico.escribirArchivo("productos.txt", lines);
     }
 
     @Override
