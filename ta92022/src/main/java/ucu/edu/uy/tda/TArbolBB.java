@@ -56,7 +56,8 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
         return unaLista;
     }
-
+    
+   
     /**
      * @return recorrida en preOrden del arbol, null en caso de ser vacío
      */

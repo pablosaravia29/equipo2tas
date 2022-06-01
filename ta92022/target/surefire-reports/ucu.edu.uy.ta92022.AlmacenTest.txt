@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ucu.edu.uy.ta92022.AlmacenTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in ucu.edu.uy.ta92022.AlmacenTest

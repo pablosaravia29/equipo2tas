@@ -1,9 +1,13 @@
 package ucu.edu.uy.ta92022;
 
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
 import ucu.edu.uy.tda.IElementoAB;
+import ucu.edu.uy.tda.ILista;
 import ucu.edu.uy.tda.INodo;
 import ucu.edu.uy.tda.Lista;
+import ucu.edu.uy.tda.ListaOrdenada;
+import ucu.edu.uy.tda.Nodo;
 import ucu.edu.uy.tda.TArbolBB;
 import ucu.edu.uy.tda.TElementoAB;
 import ucu.edu.uy.util.ManejadorArchivosGenerico;
@@ -82,6 +86,54 @@ public class Almacen implements IAlmacen {
         System.out.println("El valor reducido del stock es: $" + valorReducido);
     }
 
+    public void listarProductosEnArchivo() {
+//        TArbolBB<Producto> arbolResultado = new TArbolBB<Producto>();
+//
+//        Lista<Producto> unaLista = new Lista<>();
+//        this.productos.getRaiz().inOrden(unaLista);
+//        INodo<Producto> aux = unaLista.getPrimero();
+//
+//        String[] lines = new String[productos.getRaiz().tamanio()];
+//        int i = 0;
+//        while (aux != null) {
+//            IElementoAB<Producto> producto = new TElementoAB<>(aux.getDato().getNombre(), aux.getDato());
+//            arbolResultado.insertar(producto);
+//            aux = aux.getSiguiente();
+//        }
+//
+//        Lista<Producto> otraLista = new Lista<>();
+//        arbolResultado.getRaiz().inOrden(otraLista);
+//        aux = otraLista.getPrimero();
+//        while (aux != null) {
+//            lines[i++] = (aux.getEtiqueta() + "," + aux.getDato().getPrecio().toString());
+//            aux = aux.getSiguiente();
+//        }
+//
+//        ManejadorArchivosGenerico.escribirArchivo("productos.txt", lines);
+//    }
+        ListaOrdenada<Producto> listaOrdenada = new ListaOrdenada<>();
+        Lista<Producto> temporal = productos.inOrden();
+        Nodo<Producto> aux = temporal.getPrimero();
+        while (aux != null) {
+            Nodo<Producto> aInsertar = new Nodo(aux.getDato().getNombre(), aux.getDato());
+            listaOrdenada.insertar(aInsertar);
+            aux = aux.getSiguiente();
+        }
+        String[] lineas = new String[listaOrdenada.cantElementos()];
+        Nodo<Producto> temp = listaOrdenada.getPrimero();
+        int i = 0;
+        int valorM = 0;
+        while (temp != null) {
+            valorM += temp.getDato().getPrecio() * temp.getDato().getStock();
+            lineas[i] = temp.getDato().getNombre() + "," + temp.getDato().getPrecio();
+            i++;
+            temp = temp.getSiguiente();
+        }
+        ManejadorArchivosGenerico.escribirArchivo("productos.txt", lineas);
+        System.out.println("El valor monetario total es : $" + valorM);
+
+    }
+
     @Override
     public String imprimirProductos() {
 
@@ -97,7 +149,8 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public Boolean agregarStock(Comparable clave, Integer cantidad) {
+    public Boolean agregarStock(Comparable clave, Integer cantidad
+    ) {
         IElementoAB<Producto> buscado = productos.buscar(clave);
         if (buscado != null) {
             Integer stock = buscado.getDatos().getStock();
@@ -110,7 +163,8 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public Integer restarStock(Comparable clave, Integer cantidad) {
+    public Integer restarStock(Comparable clave, Integer cantidad
+    ) {
 
         IElementoAB<Producto> producto = productos.buscar(clave);
         if (producto != null) {
@@ -128,7 +182,8 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public Producto buscarPorCodigo(Comparable clave) {
+    public Producto buscarPorCodigo(Comparable clave
+    ) {
 
         IElementoAB<Producto> buscado = productos.buscar(clave);
         return buscado == null ? null : buscado.getDatos();
@@ -136,7 +191,8 @@ public class Almacen implements IAlmacen {
     }
 
     @Override
-    public boolean eliminarProducto(Comparable clave) {
+    public boolean eliminarProducto(Comparable clave
+    ) {
         productos.eliminar(clave);
         return false;
     }
