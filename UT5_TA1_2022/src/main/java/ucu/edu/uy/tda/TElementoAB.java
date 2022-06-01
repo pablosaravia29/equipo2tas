@@ -6,6 +6,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
     private IElementoAB hijoIzq;
     private IElementoAB hijoDer;
     private T datos;
+    private int FEquilibrio;
 
     /**
      * @param unaEtiqueta
@@ -15,6 +16,16 @@ public class TElementoAB<T> implements IElementoAB<T> {
         etiqueta = unaEtiqueta;
         datos = unosDatos;
     }
+
+    public int getFEquilibrio() {
+        return FEquilibrio;
+    }
+
+    public void setFEquilibrio(int FEquilibrio) {
+        this.FEquilibrio = FEquilibrio;
+    }
+    
+    
 
     @Override
     public IElementoAB<T> getHijoIzq() {
@@ -247,6 +258,20 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
 
         return -1;
+    }
+
+    @Override
+    public int factorEquilibrio() {
+        int factIzq = -1;
+        int factDer = -1;
+        if (this.hijoIzq != null) {
+            factIzq = this.hijoIzq.factorEquilibrio();
+        }
+        if (this.hijoDer != null) {
+            factDer = this.hijoDer.factorEquilibrio();
+        }
+        this.setFEquilibrio(factDer - factIzq);
+        return Math.max(factIzq, factDer) + 1;
     }
 
 }

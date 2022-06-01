@@ -155,6 +155,13 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return this.raiz.imprimir();
     }
 
+    @Override
+    public void factorEquilibrio (){
+        if (this.raiz == null){
+            raiz.factorEquilibrio();
+        }
+        
+    }
 
   
 

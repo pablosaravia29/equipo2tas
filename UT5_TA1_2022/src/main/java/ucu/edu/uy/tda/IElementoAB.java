@@ -115,5 +115,5 @@ public interface IElementoAB<T> {
     public int nivel(Comparable etiqueta, int nivel);
 
     public String imprimir();
-
+    public int factorEquilibrio();
 }

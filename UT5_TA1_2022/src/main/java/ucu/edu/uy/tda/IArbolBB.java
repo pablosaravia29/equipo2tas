@@ -92,5 +92,7 @@ public interface IArbolBB<T> {
      * @return
      */
     public IElementoAB<T> getRaiz();
+    
+    public void factorEquilibrio ();
 }
 
