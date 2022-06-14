@@ -92,13 +92,5 @@ public interface IArbolBB<T> {
      * @return
      */
     public IElementoAB<T> getRaiz();
-    
-    /**
-     *
-     * @param frecExito
-     * @param frecNoExito
-     * @return
-     */
-    public long calcularCosto(int[] frecExito, int[] frecNoExito);
 }
 
