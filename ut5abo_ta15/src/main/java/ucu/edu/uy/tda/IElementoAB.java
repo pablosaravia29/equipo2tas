@@ -126,7 +126,6 @@ public interface IElementoAB<T> {
     public Lista<T> listaDatosNivelMasProfundo(int nivel, Lista resultado);
      
     public int Iti (int nivel);
-       
-    
+     
 
 }
