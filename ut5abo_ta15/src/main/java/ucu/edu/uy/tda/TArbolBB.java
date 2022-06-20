@@ -177,5 +177,25 @@ public class TArbolBB<T> implements IArbolBB<T>
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 
     }
-
+    
+     public Lista listaDatosNivelMasProfundo(){
+        Lista <T> resultado = new Lista<T>();
+        if (this.raiz != null){
+            int nivel = this.altura();
+            resultado = this.raiz.listaDatosNivelMasProfundo(nivel, resultado);
+            
+        }
+        return resultado;
+    }
+     
+     public int Iti(){
+         int resultado = 0;
+         if (this.raiz != null){
+             resultado = this.raiz.Iti(1);
+        }
+         return resultado;
+     }
+          
+    
+     
 }

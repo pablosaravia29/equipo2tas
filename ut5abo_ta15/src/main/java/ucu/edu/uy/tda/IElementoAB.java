@@ -122,5 +122,11 @@ public interface IElementoAB<T> {
      * @return
      */
     public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel);
+    
+    public Lista<T> listaDatosNivelMasProfundo(int nivel, Lista resultado);
+     
+    public int Iti (int nivel);
+       
+    
 
 }

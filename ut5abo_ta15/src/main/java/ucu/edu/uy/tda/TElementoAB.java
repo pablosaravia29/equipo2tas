@@ -1,7 +1,6 @@
 package ucu.edu.uy.tda;
 
-public class TElementoAB<T> implements IElementoAB<T>
-{
+public class TElementoAB<T> implements IElementoAB<T> {
 
     private final Comparable etiqueta;
     private IElementoAB hijoIzq;
@@ -12,21 +11,23 @@ public class TElementoAB<T> implements IElementoAB<T>
      * @param unaEtiqueta
      * @param unosDatos
      */
-    public TElementoAB(Comparable unaEtiqueta, T unosDatos)
-    {
+    @Override
+    public Comparable getEtiqueta() {
+        return this.etiqueta;
+    }
+
+    public TElementoAB(Comparable unaEtiqueta, T unosDatos) {
         etiqueta = unaEtiqueta;
         datos = unosDatos;
     }
 
     @Override
-    public IElementoAB<T> getHijoIzq()
-    {
+    public IElementoAB<T> getHijoIzq() {
         return hijoIzq;
     }
 
     @Override
-    public IElementoAB<T> getHijoDer()
-    {
+    public IElementoAB<T> getHijoDer() {
         return hijoDer;
     }
 
@@ -35,34 +36,22 @@ public class TElementoAB<T> implements IElementoAB<T>
      * @return
      */
     @Override
-    public boolean insertar(IElementoAB<T> unElemento)
-    {
-        if (unElemento.getEtiqueta().compareTo(etiqueta) < 0)
-        {
-            if (hijoIzq != null)
-            {
+    public boolean insertar(IElementoAB<T> unElemento) {
+        if (unElemento.getEtiqueta().compareTo(etiqueta) < 0) {
+            if (hijoIzq != null) {
                 return getHijoIzq().insertar(unElemento);
-            }
-            else
-            {
+            } else {
                 hijoIzq = unElemento;
                 return true;
             }
-        }
-        else if (unElemento.getEtiqueta().compareTo(etiqueta) > 0)
-        {
-            if (hijoDer != null)
-            {
+        } else if (unElemento.getEtiqueta().compareTo(etiqueta) > 0) {
+            if (hijoDer != null) {
                 return getHijoDer().insertar(unElemento);
-            }
-            else
-            {
+            } else {
                 hijoDer = unElemento;
                 return true;
             }
-        }
-        else
-        {
+        } else {
             // ya existe un elemento con la misma etiqueta.-
             return false;
         }
@@ -73,45 +62,31 @@ public class TElementoAB<T> implements IElementoAB<T>
      * @return
      */
     @Override
-    public IElementoAB<T> buscar(Comparable unaEtiqueta)
-    {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
 
-        if (unaEtiqueta.equals(etiqueta))
-        {
+        if (unaEtiqueta.equals(etiqueta)) {
             return this;
-        }
-        else if (unaEtiqueta.compareTo(etiqueta) < 0)
-        {
-            if (hijoIzq != null)
-            {
+        } else if (unaEtiqueta.compareTo(etiqueta) < 0) {
+            if (hijoIzq != null) {
                 return getHijoIzq().buscar(unaEtiqueta);
-            }
-            else
-            {
+            } else {
                 return null;
             }
-        }
-        else if (hijoDer != null)
-        {
+        } else if (hijoDer != null) {
             return getHijoDer().buscar(unaEtiqueta);
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
 
     @Override
-    public void inOrden(Lista<T> unaLista)
-    {
-        if (hijoIzq != null)
-        {
+    public void inOrden(Lista<T> unaLista) {
+        if (hijoIzq != null) {
             hijoIzq.inOrden(unaLista);
         }
         Nodo<T> unNodo = new Nodo<>(this.getEtiqueta(), this.getDatos());
         unaLista.insertar(unNodo);
-        if (hijoDer != null)
-        {
+        if (hijoDer != null) {
             hijoDer.inOrden(unaLista);
         }
     }
@@ -120,17 +95,14 @@ public class TElementoAB<T> implements IElementoAB<T>
      * @return recorrida en preOrden del subArbol que cuelga del elemento actual
      */
     @Override
-    public String preOrden()
-    {
+    public String preOrden() {
         StringBuilder tempStr = new StringBuilder();
         tempStr.append(imprimir());
-        if (hijoIzq != null)
-        {
+        if (hijoIzq != null) {
             tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
             tempStr.append(getHijoIzq().preOrden());
         }
-        if (hijoDer != null)
-        {
+        if (hijoDer != null) {
             tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
             tempStr.append(getHijoDer().preOrden());
         }
@@ -142,16 +114,13 @@ public class TElementoAB<T> implements IElementoAB<T>
      * actual
      */
     @Override
-    public String postOrden()
-    {
+    public String postOrden() {
         StringBuilder tempStr = new StringBuilder();
-        if (hijoIzq != null)
-        {
+        if (hijoIzq != null) {
             tempStr.append(getHijoIzq().postOrden());
             tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
         }
-        if (hijoDer != null)
-        {
+        if (hijoDer != null) {
             tempStr.append(getHijoDer().postOrden());
             tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
         }
@@ -159,60 +128,44 @@ public class TElementoAB<T> implements IElementoAB<T>
         return tempStr.toString();
     }
 
-    @Override
-    public Comparable getEtiqueta()
-    {
-        return etiqueta;
-    }
-
     /**
      * @return
      */
-    public String imprimir()
-    {
+    public String imprimir() {
         return (etiqueta.toString());
     }
 
     @Override
-    public T getDatos()
-    {
+    public T getDatos() {
         return datos;
     }
 
-    public void setDatos(T datos)
-    {
+    public void setDatos(T datos) {
         this.datos = datos;
     }
 
     @Override
-    public void setHijoIzq(IElementoAB<T> elemento)
-    {
+    public void setHijoIzq(IElementoAB<T> elemento) {
         this.hijoIzq = elemento;
 
     }
 
     @Override
-    public void setHijoDer(IElementoAB<T> elemento)
-    {
+    public void setHijoDer(IElementoAB<T> elemento) {
         this.hijoDer = elemento;
     }
 
     @Override
-    public IElementoAB<T> eliminar(Comparable unaEtiqueta)
-    {
-        if (unaEtiqueta.compareTo(this.getEtiqueta()) < 0)
-        {
-            if (this.hijoIzq != null)
-            {
+    public IElementoAB<T> eliminar(Comparable unaEtiqueta) {
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) < 0) {
+            if (this.hijoIzq != null) {
                 this.hijoIzq = hijoIzq.eliminar(unaEtiqueta);
             }
             return this;
         }
 
-        if (unaEtiqueta.compareTo(this.getEtiqueta()) > 0)
-        {
-            if (this.hijoDer != null)
-            {
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) > 0) {
+            if (this.hijoDer != null) {
                 this.hijoDer = hijoDer.eliminar(unaEtiqueta);
 
             }
@@ -222,29 +175,24 @@ public class TElementoAB<T> implements IElementoAB<T>
         return quitaElNodo();
     }
 
-    private IElementoAB<T> quitaElNodo()
-    {
-        if (hijoIzq == null)
-        {    // solo tiene un hijo o es hoja
+    private IElementoAB<T> quitaElNodo() {
+        if (hijoIzq == null) {    // solo tiene un hijo o es hoja
             return hijoDer;
         }
 
-        if (hijoDer == null)
-        { // solo tiene un hijo o es hoja
+        if (hijoDer == null) { // solo tiene un hijo o es hoja
             return hijoIzq;
         }
 // tiene los dos hijos, buscamos el lexicograficamente anterior
         IElementoAB<T> elHijo = hijoIzq;
         IElementoAB<T> elPadre = this;
 
-        while (elHijo.getHijoDer() != null)
-        {
+        while (elHijo.getHijoDer() != null) {
             elPadre = elHijo;
             elHijo = elHijo.getHijoDer();
         }
 
-        if (elPadre != this)
-        {
+        if (elPadre != this) {
             elPadre.setHijoDer(elHijo.getHijoIzq());
             elHijo.setHijoIzq(hijoIzq);
         }
@@ -256,17 +204,14 @@ public class TElementoAB<T> implements IElementoAB<T>
     }
 
     @Override
-    public int altura()
-    {
+    public int altura() {
         int altIzq = -1;
         int altDer = -1;
-        if (this.hijoIzq != null)
-        {
+        if (this.hijoIzq != null) {
             altIzq = this.hijoIzq.altura();
         }
 
-        if (this.hijoDer != null)
-        {
+        if (this.hijoDer != null) {
             altDer = this.hijoDer.altura();
         }
 
@@ -275,35 +220,28 @@ public class TElementoAB<T> implements IElementoAB<T>
     }
 
     @Override
-    public int tamanio()
-    {
+    public int tamanio() {
         int tamSubArboles = 0;
-        if (this.hijoIzq != null)
-        {
+        if (this.hijoIzq != null) {
             tamSubArboles += this.hijoIzq.tamanio();
         }
 
-        if (this.hijoDer != null)
-        {
+        if (this.hijoDer != null) {
             tamSubArboles += this.hijoDer.tamanio();
         }
         return tamSubArboles + 1;
     }
 
     @Override
-    public int nivel(Comparable etiqueta, int nivel)
-    {
-        if (this.etiqueta.compareTo(etiqueta) == 0)
-        {
+    public int nivel(Comparable etiqueta, int nivel) {
+        if (this.etiqueta.compareTo(etiqueta) == 0) {
             return nivel;
         }
-        if (etiqueta.compareTo(this.etiqueta) < 0 && this.hijoIzq != null)
-        {
+        if (etiqueta.compareTo(this.etiqueta) < 0 && this.hijoIzq != null) {
             return this.hijoIzq.nivel(etiqueta, nivel + 1);
         }
 
-        if (etiqueta.compareTo(this.etiqueta) > 0 && this.hijoDer != null)
-        {
+        if (etiqueta.compareTo(this.etiqueta) > 0 && this.hijoDer != null) {
             return this.hijoDer.nivel(etiqueta, nivel + 1);
         }
 
@@ -311,9 +249,35 @@ public class TElementoAB<T> implements IElementoAB<T>
     }
 
     @Override
-    public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel)
-    {
+    public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public Lista<T> listaDatosNivelMasProfundo(int nivel, Lista resultado){
+        if (this.hijoIzq == null && this.hijoDer == null && nivel == 1) {
+            Nodo nodoAux = new Nodo(this.getEtiqueta(), this.getDatos());
+            resultado.insertar(nodoAux);
+        }
+        if (this.hijoIzq != null) {
+            this.hijoIzq.listaDatosNivelMasProfundo(nivel - 1, resultado);
+        }
+        if (this.hijoDer != null) {
+            this.hijoDer.listaDatosNivelMasProfundo(nivel - 1, resultado);
+        }
+        return resultado;
+    }
+
+    @Override
+    public int Iti(int nivel) {
+        int resultado = nivel;
+        if (this.hijoIzq != null) {
+            resultado += this.hijoIzq.Iti(nivel + 1);
+        }    
+        if (this.hijoDer != null) {
+            resultado += this.hijoDer.Iti(nivel + 1);
+        }
+        return resultado;
+}
 
 }
