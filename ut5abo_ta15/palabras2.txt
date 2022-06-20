@@ -1,0 +1,4 @@
+gato 5
+perro 3
+raton 4
+zorro 2
