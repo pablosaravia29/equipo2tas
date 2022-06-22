@@ -37,6 +37,8 @@ public class Main {
         Lista<String> temp = new Lista<>();
         temp = arbolPalabras.listaDatosNivelMasProfundo();
         Nodo<String> aux = temp.getPrimero();
+        System.out.println("La lista de datos del nivel más bajo es: " );
+  
         while (aux != null) {
             System.out.println(aux.getEtiqueta());
             aux = aux.getSiguiente();

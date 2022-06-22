@@ -248,9 +248,25 @@ public class TElementoAB<T> implements IElementoAB<T> {
         return -1;
     }
 
-    @Override
-    public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      @Override
+    public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel)
+    {
+        long contador = 0;
+        if (hijoIzq != null) {
+            contador += this.hijoIzq.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);            
+        }
+        else {
+            contador += frecNoExito[indiceFNE[0]] * nivel;
+            indiceFNE[0] ++;
+        }
+        contador += frecExito[indiceFE[0]] * nivel;
+        if (hijoDer != null) {
+            contador += this.hijoDer.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);
+        } else {
+            contador += frecNoExito[indiceFNE[0]] * nivel;
+            indiceFNE[0] ++;
+        }
+        return contador;
     }
 
     @Override

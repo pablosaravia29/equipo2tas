@@ -171,10 +171,16 @@ public class TArbolBB<T> implements IArbolBB<T>
         return this.raiz;
     }
 
-    @Override
+  @Override
     public long calcularCosto(int[] frecExito, int[] frecNoExito)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        long resultado = -1;
+        int indiceFNE[] = {0};
+        int indiceFE[] = {1};
+        if (this.getRaiz() != null) {
+          resultado = this.getRaiz().calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, 0);  
+        }
+        return resultado;
 
     }
     
