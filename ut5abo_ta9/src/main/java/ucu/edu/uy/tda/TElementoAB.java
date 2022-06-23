@@ -349,6 +349,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
+    @Override
     public void completaVectores(int[] claves, int[] freExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE) {
         int resultado = -1;
         if (this.hijoIzq == null) {
