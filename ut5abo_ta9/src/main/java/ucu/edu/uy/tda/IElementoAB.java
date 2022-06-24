@@ -129,7 +129,7 @@ public interface IElementoAB<T> {
      
     public void cuentaFrec(Comparable unArgumento);
     
-    public void completaVectores(int[] claves, int[] freExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE);
+    public void completaVectores(Comparable[] claves, int[] freExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE);
 
 
 }

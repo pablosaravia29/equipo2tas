@@ -9,17 +9,13 @@ public interface IArbolBB<T> {
      * @param unElemento Elemento a insertar
      * @return Exito de la operacián
      */
-
     public boolean insertar(IElementoAB<T> unElemento);
-
- 
 
     /**
      * Busca un elemento dentro del árbol.
      *
      *
-     * @param unaEtiqueta Etiqueta identificadora del elemento a buscar.
-     * .
+     * @param unaEtiqueta Etiqueta identificadora del elemento a buscar. .
      * @return Elemento encontrado. En caso de no encontrarlo, retorna nulo.
      */
     public IElementoAB<T> buscar(Comparable unaEtiqueta);
@@ -45,54 +41,55 @@ public interface IArbolBB<T> {
      */
     public String postOrden();
 
-   
-    
-    
-       /**
+    /**
      * Elimina un elemento dada una etiqueta.
-     * @param unaEtiqueta 
+     *
+     * @param unaEtiqueta
      */
     public void eliminar(Comparable unaEtiqueta);
 
     /**
-     * Devuelve la altura del árbol. Se toma que la raíz es altura cero (0).
-     * Si el árbol es vacío, se retorna -1.
+     * Devuelve la altura del árbol. Se toma que la raíz es altura cero (0). Si
+     * el árbol es vacío, se retorna -1.
+     *
      * @return
      */
     public int altura();
-    
+
     /**
      * Devuelve la cantidad de nodos totales del árbol.
+     *
      * @return
      */
     public int tamanio();
-    
+
     /**
      * Dada una etiqueta devuelve el nivel en el que se encuentra el elemento,
      * de lo contrario devuelve -1.
+     *
      * @param etiqueta
      * @return
      */
     public int nivel(Comparable etiqueta);
-    
+
     /**
      *
      * @return
      */
     public boolean vaciar();
-    
+
     /**
      *
      * @return
      */
     public boolean esVacio();
-    
+
     /**
      *
      * @return
      */
     public IElementoAB<T> getRaiz();
-    
+
     /**
      *
      * @param frecExito
@@ -100,9 +97,12 @@ public interface IArbolBB<T> {
      * @return
      */
     public long calcularCosto(int[] frecExito, int[] frecNoExito);
-    
-    public Lista listaDatosNivelMasProfundo();
-    
-    public int Iti();
-}
 
+    public Lista listaDatosNivelMasProfundo();
+
+    public int Iti();
+
+    public void cuentaFrec(Comparable<T> unArgumento);
+
+    public void completaVectores(Comparable [] claves, int[] freExito, int[] frecNoExito);
+}

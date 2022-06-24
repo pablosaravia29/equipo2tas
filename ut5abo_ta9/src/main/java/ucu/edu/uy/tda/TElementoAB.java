@@ -6,7 +6,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
     private IElementoAB hijoIzq;
     private IElementoAB hijoDer;
     private T datos;
-    private int frecExito ;
+    private int frecExito;
     private int frecNoExitoDer;
     private int frecNoExitoIzq;
 
@@ -47,7 +47,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         etiqueta = unaEtiqueta;
         datos = unosDatos;
         frecExito = 0;
-        frecNoExitoDer = 0; 
+        frecNoExitoDer = 0;
         frecNoExitoIzq = 0;
     }
 
@@ -326,14 +326,13 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     @Override
     public void cuentaFrec(Comparable unArgumento) {
-       
-      
+
         if (unArgumento.compareTo(this.getEtiqueta()) == 0) {
             this.frecExito++;
         } else {
             if (unArgumento.compareTo(this.getEtiqueta()) < 0) {
                 if (this.hijoIzq == null) {
-                    this.frecNoExitoIzq ++;
+                    this.frecNoExitoIzq++;
                 } else {
                     this.getHijoIzq().cuentaFrec(unArgumento);
                 }
@@ -350,10 +349,19 @@ public class TElementoAB<T> implements IElementoAB<T> {
     }
 
     @Override
-    public void completaVectores(int[] claves, int[] freExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE) {
-        int resultado = -1;
-        if (this.hijoIzq == null) {
-            this.hijoIzq.completaVectores(claves, freExito, frecNoExito, indiceFE, indiceFE);
+    public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE) {
+        if (this.hijoIzq != null) {
+            this.hijoIzq.completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        } else {
+            frecNoExito[indiceFNE[0]] = this.getFrecNoExitoIzq();
+            indiceFNE[0]++;
+        }
+        frecExito[indiceFE[0]] = this.frecExito;
+        indiceFE[0]++;
+        claves[indiceFE[0]]= this.getEtiqueta();
+
+        if (this.hijoDer != null) {
+            this.hijoDer.completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
         } else {
             frecNoExito[indiceFNE[0]] = this.getFrecNoExitoIzq();
             indiceFNE[0]++;
@@ -361,14 +369,4 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     }
 
-// 
-//COMIENZO
-//int resultado <- -1 O(1)
-//IndiceFE[] <- {1} O(1)
-//SI this.GetRaiz <> Nulo O(1) 
-//  	resultado <- this.GetRaiz.completaVectores(FrecExito [],1 ) tipo entero O(n)
-//FIN SI
-//retornar resultado O(1)
-//FIN
-//
 }

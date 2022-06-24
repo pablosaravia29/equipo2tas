@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         TArbolBB arbolPalabras = new TArbolBB();
         ArrayList<String> lista = new ArrayList<>();
+
         String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
         for (String lineas : palabras) {
             String[] palabra = lineas.split(" ");
@@ -28,24 +29,41 @@ public class Main {
                 continue;
             }
         }
-
         Collections.shuffle(lista);
         for (String s : lista) {
             arbolPalabras.insertar(new TElementoAB(s, s));
 
         }
-        Lista<String> temp = new Lista<>();
-        temp = arbolPalabras.listaDatosNivelMasProfundo();
-        Nodo<String> aux = temp.getPrimero();
-        System.out.println("La lista de datos del nivel más bajo es: " );
-  
-        while (aux != null) {
-            System.out.println(aux.getEtiqueta());
-            aux = aux.getSiguiente();
+
+        String[] entrada = ManejadorArchivosGenerico.leerArchivo("entrada.txt");
+        for (String linea : entrada) {
+            String[] words = linea.split(" ");
+            for (String palabra : words) {
+
+                if (palabra.length() != 0) {
+                    try {
+
+                        arbolPalabras.cuentaFrec(palabra);
+
+                    } catch (Exception e) {
+                        
+                    }
+                }
+
+            }
         }
 
-        int resultado = 0;
-        resultado = arbolPalabras.Iti();
-        System.out.println("El resultado de longitud de trayectoria interna es: " + resultado);
+        int[] frecExitosas = new int[arbolPalabras.tamanio() + 1];
+        int[] frecNoExitosas = new int[arbolPalabras.tamanio() + 1];
+        String[] claves = new String[arbolPalabras.tamanio() + 1];
+
+        arbolPalabras.completaVectores(claves, frecExitosas, frecNoExitosas);
+
+        CalculadorMatricesOptimo calculadorOptimo = new CalculadorMatricesOptimo(arbolPalabras.tamanio());
+        calculadorOptimo.encontrarOptimo(arbolPalabras.tamanio(), frecExitosas, frecNoExitosas);
+
+        calculadorOptimo.armarArbolBinario(0, arbolPalabras.tamanio(), claves, arbolPalabras);
+        System.out.println(arbolPalabras.tamanio());
+
     }
 }
