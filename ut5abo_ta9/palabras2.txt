@@ -1,4 +1,812 @@
-public void nada
-return x
-listo
+package ucu.edu.uy.tda;
 
+public class TElementoAB<T> implements IElementoAB<T> {
+
+    private final Comparable etiqueta;
+    private IElementoAB hijoIzq;
+    private IElementoAB hijoDer;
+    private T datos;
+    private int frecExito;
+    private int frecNoExitoDer;
+    private int frecNoExitoIzq;
+
+    public int getFrecExito() {
+        return frecExito;
+    }
+
+    public void setFrecExito(int frecExito) {
+        this.frecExito = frecExito;
+    }
+
+    public int getFrecNoExitoDer() {
+        return frecNoExitoDer;
+    }
+
+    public void setFrecNoExitoDer(int frecNoExitoDer) {
+        this.frecNoExitoDer = frecNoExitoDer;
+    }
+
+    public int getFrecNoExitoIzq() {
+        return frecNoExitoIzq;
+    }
+
+    public void setFrecNoExitoIzq(int frecNoExitoIzq) {
+        this.frecNoExitoIzq = frecNoExitoIzq;
+    }
+
+    /**
+     * @param unaEtiqueta
+     * @param unosDatos
+     */
+    @Override
+    public Comparable getEtiqueta() {
+        return this.etiqueta;
+    }
+
+    public TElementoAB(Comparable unaEtiqueta, T unosDatos) {
+        etiqueta = unaEtiqueta;
+        datos = unosDatos;
+        frecExito = 0;
+        frecNoExitoDer = 0;
+        frecNoExitoIzq = 0;
+    }
+
+    @Override
+    public IElementoAB<T> getHijoIzq() {
+        return hijoIzq;
+    }
+
+    @Override
+    public IElementoAB<T> getHijoDer() {
+        return hijoDer;
+    }
+
+    /**
+     * @param unElemento
+     * @return
+     */
+    @Override
+    public boolean insertar(IElementoAB<T> unElemento) {
+        if (unElemento.getEtiqueta().compareTo(etiqueta) < 0) {
+            if (hijoIzq != null) {
+                return getHijoIzq().insertar(unElemento);
+            } else {
+                hijoIzq = unElemento;
+                return true;
+            }
+        } else if (unElemento.getEtiqueta().compareTo(etiqueta) > 0) {
+            if (hijoDer != null) {
+                return getHijoDer().insertar(unElemento);
+            } else {
+                hijoDer = unElemento;
+                return true;
+            }
+        } else {
+            // ya existe un elemento con la misma etiqueta.-
+            return false;
+        }
+    }
+
+    /**
+     * @param unaEtiqueta
+     * @return
+     */
+    @Override
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
+
+        if (unaEtiqueta.equals(etiqueta)) {
+            return this;
+        } else if (unaEtiqueta.compareTo(etiqueta) < 0) {
+            if (hijoIzq != null) {
+                return getHijoIzq().buscar(unaEtiqueta);
+            } else {
+                return null;
+            }
+        } else if (hijoDer != null) {
+            return getHijoDer().buscar(unaEtiqueta);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void inOrden(Lista<T> unaLista) {
+        if (hijoIzq != null) {
+            hijoIzq.inOrden(unaLista);
+        }
+        Nodo<T> unNodo = new Nodo<>(this.getEtiqueta(), this.getDatos());
+        unaLista.insertar(unNodo);
+        if (hijoDer != null) {
+            hijoDer.inOrden(unaLista);
+        }
+    }
+
+    /**
+     * @return recorrida en preOrden del subArbol que cuelga del elemento actual
+     */
+    @Override
+    public String preOrden() {
+        StringBuilder tempStr = new StringBuilder();
+        tempStr.append(imprimir());
+        if (hijoIzq != null) {
+            tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
+            tempStr.append(getHijoIzq().preOrden());
+        }
+        if (hijoDer != null) {
+            tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
+            tempStr.append(getHijoDer().preOrden());
+        }
+        return tempStr.toString();
+    }
+
+    /**
+     * @return recorrida en postOrden del subArbol que cuelga del elemento
+     * actual
+     */
+    @Override
+    public String postOrden() {
+        StringBuilder tempStr = new StringBuilder();
+        if (hijoIzq != null) {
+            tempStr.append(getHijoIzq().postOrden());
+            tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
+        }
+        if (hijoDer != null) {
+            tempStr.append(getHijoDer().postOrden());
+            tempStr.append(TArbolBB.SEPARADOR_ELEMENTOS_IMPRESOS);
+        }
+        tempStr.append(imprimir());
+        return tempStr.toString();
+    }
+
+    /**
+     * @return
+     */
+    public String imprimir() {
+        return (etiqueta.toString());
+    }
+
+    @Override
+    public T getDatos() {
+        return datos;
+    }
+
+    public void setDatos(T datos) {
+        this.datos = datos;
+    }
+
+    @Override
+    public void setHijoIzq(IElementoAB<T> elemento) {
+        this.hijoIzq = elemento;
+
+    }
+
+    @Override
+    public void setHijoDer(IElementoAB<T> elemento) {
+        this.hijoDer = elemento;
+    }
+
+    @Override
+    public IElementoAB<T> eliminar(Comparable unaEtiqueta) {
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) < 0) {
+            if (this.hijoIzq != null) {
+                this.hijoIzq = hijoIzq.eliminar(unaEtiqueta);
+            }
+            return this;
+        }
+
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) > 0) {
+            if (this.hijoDer != null) {
+                this.hijoDer = hijoDer.eliminar(unaEtiqueta);
+
+            }
+            return this;
+        }
+
+        return quitaElNodo();
+    }
+
+    private IElementoAB<T> quitaElNodo() {
+        if (hijoIzq == null) {    // solo tiene un hijo o es hoja
+            return hijoDer;
+        }
+
+        if (hijoDer == null) { // solo tiene un hijo o es hoja
+            return hijoIzq;
+        }
+// tiene los dos hijos, buscamos el lexicograficamente anterior
+        IElementoAB<T> elHijo = hijoIzq;
+        IElementoAB<T> elPadre = this;
+
+        while (elHijo.getHijoDer() != null) {
+            elPadre = elHijo;
+            elHijo = elHijo.getHijoDer();
+        }
+
+        if (elPadre != this) {
+            elPadre.setHijoDer(elHijo.getHijoIzq());
+            elHijo.setHijoIzq(hijoIzq);
+        }
+
+        elHijo.setHijoDer(hijoDer);
+        setHijoIzq(null);  // para que no queden referencias y ayudar al collector
+        setHijoDer(null);
+        return elHijo;
+    }
+
+    @Override
+    public int altura() {
+        int altIzq = -1;
+        int altDer = -1;
+        if (this.hijoIzq != null) {
+            altIzq = this.hijoIzq.altura();
+        }
+
+        if (this.hijoDer != null) {
+            altDer = this.hijoDer.altura();
+        }
+
+        return Math.max(altDer, altIzq) + 1;
+
+    }
+
+    @Override
+    public int tamanio() {
+        int tamSubArboles = 0;
+        if (this.hijoIzq != null) {
+            tamSubArboles += this.hijoIzq.tamanio();
+        }
+
+        if (this.hijoDer != null) {
+            tamSubArboles += this.hijoDer.tamanio();
+        }
+        return tamSubArboles + 1;
+    }
+
+    @Override
+    public int nivel(Comparable etiqueta, int nivel) {
+        if (this.etiqueta.compareTo(etiqueta) == 0) {
+            return nivel;
+        }
+        if (etiqueta.compareTo(this.etiqueta) < 0 && this.hijoIzq != null) {
+            return this.hijoIzq.nivel(etiqueta, nivel + 1);
+        }
+
+        if (etiqueta.compareTo(this.etiqueta) > 0 && this.hijoDer != null) {
+            return this.hijoDer.nivel(etiqueta, nivel + 1);
+        }
+
+        return -1;
+    }
+
+    @Override
+    public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel) {
+        long contador = 0;
+        if (hijoIzq != null) {
+            contador += this.hijoIzq.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);
+        } else {
+            contador += frecNoExito[indiceFNE[0]] * nivel;
+            indiceFNE[0]++;
+        }
+        contador += frecExito[indiceFE[0]] * nivel;
+        if (hijoDer != null) {
+            contador += this.hijoDer.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);
+        } else {
+            contador += frecNoExito[indiceFNE[0]] * nivel;
+            indiceFNE[0]++;
+        }
+        return contador;
+    }
+
+    @Override
+    public Lista<T> listaDatosNivelMasProfundo(int nivel, Lista resultado) {
+        if (this.hijoIzq == null && this.hijoDer == null && nivel == 1) {
+            Nodo nodoAux = new Nodo(this.getEtiqueta(), this.getDatos());
+            resultado.insertar(nodoAux);
+        }
+        if (this.hijoIzq != null) {
+            this.hijoIzq.listaDatosNivelMasProfundo(nivel - 1, resultado);
+        }
+        if (this.hijoDer != null) {
+            this.hijoDer.listaDatosNivelMasProfundo(nivel - 1, resultado);
+        }
+        return resultado;
+    }
+
+    @Override
+    public int Iti(int nivel) {
+        int resultado = nivel;
+        if (this.hijoIzq != null) {
+            resultado += this.hijoIzq.Iti(nivel + 1);
+        }
+        if (this.hijoDer != null) {
+            resultado += this.hijoDer.Iti(nivel + 1);
+        }
+        return resultado;
+    }
+
+    @Override
+    public void cuentaFrec(Comparable unArgumento) {
+
+        if (unArgumento.compareTo(this.getEtiqueta()) == 0) {
+            this.frecExito++;
+        } else {
+            if (unArgumento.compareTo(this.getEtiqueta()) < 0) {
+                if (this.hijoIzq == null) {
+                    this.frecNoExitoIzq++;
+                } else {
+                    this.getHijoIzq().cuentaFrec(unArgumento);
+                }
+            } else {
+                if (this.hijoDer == null) {
+                    this.frecNoExitoDer++;
+                } else {
+                    this.getHijoDer().cuentaFrec(unArgumento);
+
+                }
+
+            }
+        }
+    }
+
+    @Override
+    public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE) {
+        if (this.hijoIzq != null) {
+            this.hijoIzq.completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        } else {
+            frecNoExito[indiceFNE[0]] = this.getFrecNoExitoIzq();
+            indiceFNE[0]++;
+        }
+        frecExito[indiceFE[0]] = this.frecExito;
+        claves[indiceFE[0]]= this.getEtiqueta();
+        indiceFE[0]++;
+
+        if (this.hijoDer != null) {
+            this.hijoDer.completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        } else {
+            frecNoExito[indiceFNE[0]] = this.getFrecNoExitoDer();
+            indiceFNE[0]++;
+        }
+
+    }
+
+}
+package ucu.edu.uy.tda;
+
+public class TArbolBB<T> implements IArbolBB<T> {
+
+    private IElementoAB<T> raiz;
+
+    /**
+     * Separador utilizado entre elemento y elemento al imprimir la lista
+     */
+    public static final String SEPARADOR_ELEMENTOS_IMPRESOS = "-";
+
+    public TArbolBB() {
+        raiz = null;
+    }
+
+    /**
+     * @param unElemento
+     * @return
+     */
+    @Override
+    public boolean insertar(IElementoAB<T> unElemento) {
+        if (esVacio()) {
+            raiz = unElemento;
+            return true;
+        } else {
+            return raiz.insertar(unElemento);
+        }
+    }
+
+    /**
+     * @param unaEtiqueta
+     * @return
+     */
+    @Override
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
+//        if (esVacio())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return raiz.buscar(unaEtiqueta);
+//        }
+
+        return esVacio() ? null : raiz.buscar(unaEtiqueta);
+    }
+
+    /**
+     * @return recorrida en inorden del arbol, null en caso de ser vacío
+     */
+    @Override
+    public Lista<T> inOrden() {
+        Lista<T> unaLista = new Lista<>();
+        if (!esVacio()) {
+            raiz.inOrden(unaLista);
+        }
+        return unaLista;
+    }
+
+    /**
+     * @return recorrida en preOrden del arbol, null en caso de ser vacío
+     */
+    @Override
+    public String preOrden() {
+//        if (esVacio())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return raiz.preOrden();
+//        }
+        return esVacio() ? null : raiz.preOrden();
+    }
+
+    /**
+     * @return recorrida en postOrden del arbol, null en caso de ser vacío
+     */
+    @Override
+    public String postOrden() {
+//        if (esVacio())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return raiz.postOrden();
+//        }
+        return esVacio() ? null : raiz.postOrden();
+    }
+
+    @Override
+    public void eliminar(Comparable unaEtiqueta) {
+        if (!esVacio()) {
+            this.raiz = this.raiz.eliminar(unaEtiqueta);
+        }
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public boolean esVacio() {
+        return (raiz == null);
+    }
+
+    /**
+     * @return True si habían elementos en el árbol, false en caso contrario
+     */
+    @Override
+    public boolean vaciar() {
+        if (!esVacio()) {
+            raiz = null;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int altura() {
+//        if (esVacio())
+//        {
+//            return -1;
+//        }
+//        return raiz.altura();
+        return esVacio() ? -1 : raiz.altura();
+    }
+
+    @Override
+    public int tamanio() {
+//        if (esVacio())
+//        {
+//            return -1;
+//        }
+//        return raiz.tamanio();
+        return esVacio() ? -1 : raiz.tamanio();
+    }
+
+    @Override
+    public int nivel(Comparable etiqueta) {
+//        if (esVacio())
+//        {
+//            return -1;
+//        }
+//        return raiz.nivel(etiqueta, 0);
+        return esVacio() ? -1 : raiz.nivel(etiqueta, 0);
+    }
+
+    @Override
+    public IElementoAB<T> getRaiz() {
+        return this.raiz;
+    }
+
+    @Override
+    public long calcularCosto(int[] frecExito, int[] frecNoExito) {
+        long resultado = -1;
+        int indiceFNE[] = {0};
+        int indiceFE[] = {1};
+        if (this.getRaiz() != null) {
+            resultado = this.getRaiz().calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, 0);
+        }
+        return resultado;
+
+    }
+
+    public Lista listaDatosNivelMasProfundo() {
+        Lista<T> resultado = new Lista<T>();
+        if (this.raiz != null) {
+            int nivel = this.altura();
+            resultado = this.raiz.listaDatosNivelMasProfundo(nivel, resultado);
+
+        }
+        return resultado;
+    }
+
+    public int Iti() {
+        int resultado = 0;
+        if (this.raiz != null) {
+            resultado = this.raiz.Iti(1);
+        }
+        return resultado;
+    }
+
+    @Override
+    public void cuentaFrec(Comparable<T> unArgumento) {
+        if (this.getRaiz() != null) {
+            this.getRaiz().cuentaFrec(unArgumento);
+        }
+    }
+
+    @Override
+    public void completaVectores(Comparable [] claves, int[] frecExito, int[] frecNoExito) {
+        int[] indiceFE = {1};
+        int[] indiceFNE = {0};
+        if (this.getRaiz() != null) {
+            this.getRaiz().completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        }
+    }
+
+}
+package ucu.edu.uy.tda;
+/**
+ *
+ * @author ernesto
+ * @param <T>
+ */
+public class Nodo<T> implements INodo<T> {
+
+    private final Comparable etiqueta;
+    private T dato;
+    private Nodo<T> siguiente = null;
+
+    public Nodo(Comparable etiqueta, T dato ) {
+        this.etiqueta = etiqueta;
+        this.dato = dato;
+    }
+
+    public T getDato() {
+        return this.dato;
+    }
+
+    public void setDato(T dato) {
+        this.dato = dato;
+
+    }
+
+    @Override
+    public Comparable getEtiqueta() {
+        return this.etiqueta;
+    }
+
+    @Override
+    public void imprimir() {
+        System.out.println(dato.toString());
+    }
+
+    @Override
+    public void imprimirEtiqueta() {
+        System.out.println(this.etiqueta);
+    }
+
+    public Nodo<T> clonar() {
+        return new Nodo<>(this.etiqueta, this.dato);
+    }
+
+    /**
+     *
+     * @param unNodo
+     * @return
+     */
+
+    public boolean equals(Nodo unNodo) {
+        return this.dato.equals(unNodo.getDato());
+    }
+
+    @Override
+    public int compareTo(Comparable etiqueta) {
+        return this.etiqueta.compareTo(etiqueta);
+    }
+
+    @Override
+    public Nodo<T> getSiguiente() {
+        return this.siguiente;
+    }
+
+    @Override
+    public void setSiguiente(Nodo<T> nodo) {
+        this.siguiente = nodo;
+    }
+
+}
+package ucu.edu.uy.tda;
+
+public class Lista<T> implements ILista<T>
+{
+
+    private Nodo<T> primero;
+
+    public Lista()
+    {
+        primero = null;
+    }
+
+    @Override
+    public void insertar(Nodo<T> unNodo)
+    {
+        if (esVacia())
+        {
+            primero = unNodo;
+        }
+        else
+        {
+            unNodo.setSiguiente(primero);
+            primero = unNodo;
+        }
+    }
+
+    @Override
+    public Nodo<T> buscar(Comparable clave)
+    {
+        if (esVacia())
+        {
+            return null;
+        }
+        else
+        {
+            Nodo<T> aux = primero;
+            while (aux != null)
+            {
+                if (aux.getEtiqueta().compareTo(clave) == 0)
+                {
+                    return aux;
+                }
+                aux = aux.getSiguiente();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean eliminar(Comparable clave)
+    {
+        if (esVacia())
+        {
+            return false;
+        }
+        if (primero.getSiguiente() == null)
+        {
+            if (primero.getEtiqueta().compareTo(clave) == 0)
+            {
+                primero = null;
+                return true;
+            }
+        }
+        Nodo<T> aux = primero;
+        if (aux.getEtiqueta().compareTo(clave) == 0)
+        {
+            //Eliminamos el primer elemento
+            Nodo<T> temp = aux.getSiguiente();
+            primero = temp;
+            return true;
+        }
+        while (aux.getSiguiente() != null)
+        {
+            if (aux.getSiguiente().getEtiqueta().compareTo(clave) == 0)
+            {
+                Nodo<T> temp = aux.getSiguiente();
+                aux.setSiguiente(temp.getSiguiente());
+                return true;
+
+            }
+            aux = aux.getSiguiente();
+        }
+        return false;
+    }
+
+    @Override
+    public String imprimir()
+    {
+        String aux = "";
+        if (!esVacia())
+        {
+            Nodo<T> temp = primero;
+            while (temp != null)
+            {
+                temp.imprimirEtiqueta();
+                temp = temp.getSiguiente();
+            }
+        }
+        return aux;
+    }
+
+    @Override
+    public String imprimir(String separador)
+    {
+        String aux;
+        if (esVacia())
+        {
+            return "";
+        }
+        else
+        {
+            Nodo<T> temp = primero;
+            aux = "" + temp.getEtiqueta();
+            while (temp.getSiguiente() != null)
+            {
+                aux = aux + separador + temp.getSiguiente().getEtiqueta();
+                temp = temp.getSiguiente();
+            }
+
+        }
+        return aux;
+
+    }
+
+    @Override
+    public int cantElementos()
+    {
+        int contador = 0;
+        if (esVacia())
+        {
+            System.out.println("Cantidad de elementos 0.");
+            return 0;
+        }
+        else
+        {
+            INodo aux = primero;
+            while (aux != null)
+            {
+                contador++;
+                aux = aux.getSiguiente();
+            }
+        }
+        return contador;
+    }
+
+    @Override
+    public boolean esVacia()
+    {
+        return primero == null;
+    }
+
+    @Override
+    public Nodo<T> getPrimero()
+    {
+        return primero;
+    }
+
+    @Override
+    public void setPrimero(Nodo<T> unNodo)
+    {
+        this.primero = unNodo;
+    }
+
+    @Override
+    public void vaciar()
+    {
+        this.primero = null;
+    }
+}
