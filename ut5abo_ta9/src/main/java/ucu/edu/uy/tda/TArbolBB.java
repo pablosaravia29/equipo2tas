@@ -189,11 +189,11 @@ public class TArbolBB<T> implements IArbolBB<T> {
     }
 
     @Override
-    public void completaVectores(Comparable [] claves, int[] freExito, int[] frecNoExito) {
-        int[] indiceFE = new int[1];
-        int[] indiceFNE = new int[0];
+    public void completaVectores(Comparable [] claves, int[] frecExito, int[] frecNoExito) {
+        int[] indiceFE = {1};
+        int[] indiceFNE = {0};
         if (this.getRaiz() != null) {
-            this.getRaiz().completaVectores(claves, freExito, frecNoExito, indiceFE, indiceFNE);
+            this.getRaiz().completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
         }
     }
 

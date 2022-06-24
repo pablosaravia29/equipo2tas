@@ -24,21 +24,21 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo {
     public void encontrarOptimo(int cantElem, int[] frecExito, int[] frecNoExito) {
 
         int kraiz = 0;
-
-        for (int i = 0; i <= cantElem + 1; i++) {
+//Completa diagonal de P y W
+        for (int i = 0; i < cantElem +1 ; i++) {
             W[i][i] = frecNoExito[i];
             P[i][i] = W[i][i];
 
         }
-
-        for (int i = 0; i <= cantElem; i++) {
+//Completa segunda diagonal de W
+        for (int i = 0; i < cantElem +1 ; i++) {
             for (int j = i + 1; j < cantElem + 1; j++) {
                 W[i][j] = W[i][j - 1] + frecNoExito[j] + frecExito[j];
 
             }
         }
-
-        for (int i = 0; i <= cantElem; i++) {
+//Completa 
+        for (int i = 0; i < cantElem ; i++) {
             int j = i + 1;
             P[i][j] = W[i][j] + P[i][i] + P[j][j];
             R[i][j] = j;
@@ -74,16 +74,15 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo {
      */
     @Override
     public void armarArbolBinario(int i, int j, String[] Claves, IArbolBB elArbolBB) {
-          
-        if(i < j){
+
+        if (i < j) {
             int indiceRaiz = R[i][j];
-            TElementoAB elementoAB= new TElementoAB(Claves[indiceRaiz], Claves[indiceRaiz]);
+            TElementoAB elementoAB = new TElementoAB(Claves[indiceRaiz], Claves[indiceRaiz]);
             elArbolBB.insertar(elementoAB);
-            this.armarArbolBinario(i, indiceRaiz-1, Claves, elArbolBB);
+            this.armarArbolBinario(i, indiceRaiz - 1, Claves, elArbolBB);
             this.armarArbolBinario(indiceRaiz, j, Claves, elArbolBB);
         }
     }
-
 
     public static void imprimirMatriz(int[][] matriz) {
         System.out.println();

@@ -357,13 +357,13 @@ public class TElementoAB<T> implements IElementoAB<T> {
             indiceFNE[0]++;
         }
         frecExito[indiceFE[0]] = this.frecExito;
-        indiceFE[0]++;
         claves[indiceFE[0]]= this.getEtiqueta();
+        indiceFE[0]++;
 
         if (this.hijoDer != null) {
             this.hijoDer.completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
         } else {
-            frecNoExito[indiceFNE[0]] = this.getFrecNoExitoIzq();
+            frecNoExito[indiceFNE[0]] = this.getFrecNoExitoDer();
             indiceFNE[0]++;
         }
 

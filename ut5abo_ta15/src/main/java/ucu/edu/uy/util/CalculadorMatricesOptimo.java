@@ -38,7 +38,7 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo {
             }
         }
 
-        for (int i = 0; i <= cantElem; i++) {
+        for (int i = 0; i < cantElem; i++) {
             int j = i + 1;
             P[i][j] = W[i][j] + P[i][i] + P[j][j];
             R[i][j] = j;

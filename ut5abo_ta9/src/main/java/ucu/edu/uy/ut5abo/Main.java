@@ -29,13 +29,13 @@ public class Main {
                 continue;
             }
         }
-        Collections.shuffle(lista);
+       // Collections.shuffle(lista);
         for (String s : lista) {
             arbolPalabras.insertar(new TElementoAB(s, s));
 
         }
 
-        String[] entrada = ManejadorArchivosGenerico.leerArchivo("entrada.txt");
+        String[] entrada = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
         for (String linea : entrada) {
             String[] words = linea.split(" ");
             for (String palabra : words) {
@@ -46,15 +46,15 @@ public class Main {
                         arbolPalabras.cuentaFrec(palabra);
 
                     } catch (Exception e) {
-                        
+                        System.out.println("no entro");
                     }
                 }
 
             }
         }
-
+       
         int[] frecExitosas = new int[arbolPalabras.tamanio() + 1];
-        int[] frecNoExitosas = new int[arbolPalabras.tamanio() + 1];
+        int[] frecNoExitosas = new int[arbolPalabras.tamanio()+1];
         String[] claves = new String[arbolPalabras.tamanio() + 1];
 
         arbolPalabras.completaVectores(claves, frecExitosas, frecNoExitosas);
@@ -63,7 +63,6 @@ public class Main {
         calculadorOptimo.encontrarOptimo(arbolPalabras.tamanio(), frecExitosas, frecNoExitosas);
 
         calculadorOptimo.armarArbolBinario(0, arbolPalabras.tamanio(), claves, arbolPalabras);
-        System.out.println(arbolPalabras.tamanio());
-
+     
     }
 }
