@@ -131,5 +131,7 @@ public interface IElementoAB<T> {
     
     public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE);
 
+    public int getFrecExito();
+
 
 }

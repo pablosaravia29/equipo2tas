@@ -11,11 +11,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import ucu.edu.uy.tda.TElementoAB;
+
 /**
  *
  * @author FIT
  */
 public class TArbolBBTest {
+
+    TArbolBB<String> arbolVacio = new TArbolBB();
+    TArbolBB<String> arbolRaiz = new TArbolBB();
+    TArbolBB<String> arbolVariosNodos = new TArbolBB();
     
     public TArbolBBTest() {
     }
@@ -30,12 +36,47 @@ public class TArbolBBTest {
     
     @BeforeEach
     public void setUp() {
+        TElementoAB<String> nodo1 = new TElementoAB<String>("1", "1");
+        arbolRaiz.insertar(nodo1);
+
+        TElementoAB<String> nodo2 = new TElementoAB<String>("1", "1");
+        TElementoAB<String> nodo3 = new TElementoAB<String>("2", "2");
+        TElementoAB<String> nodo4 = new TElementoAB<String>("3", "3");
+        TElementoAB<String> nodo5 = new TElementoAB<String>("4", "4");
+
+        arbolVariosNodos.insertar(nodo2);
+        arbolVariosNodos.insertar(nodo3);
+        arbolVariosNodos.insertar(nodo4);
+        arbolVariosNodos.insertar(nodo5);
     }
     
     @AfterEach
     public void tearDown() {
     }
 
+    @Test
+    public void cuentaFrecVacio() {
+        arbolVacio.cuentaFrec("1");
+        assertEquals(null, arbolVacio.getRaiz());
+    }
+
+    
+    @Test
+    public void cuentaFrecSoloRaiz() {
+        arbolRaiz.cuentaFrec("1");
+        assertEquals(1,arbolRaiz.getRaiz().getFrecExito());
+    }
+
+    @Test
+    public void cuentaFrecExitoHoja() {
+        arbolVariosNodos.cuentaFrec("4");
+        assertEquals(1,arbolVariosNodos.buscar("4").getFrecExito());
+    }
+
+
+
+
+    /*
     @Test
     public void testInsertar() {
         System.out.println("insertar");
@@ -224,5 +265,5 @@ public class TArbolBBTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }
