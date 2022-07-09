@@ -403,8 +403,8 @@ public class TElementoAB<T> implements IElementoAB<T> {
         if (palabra.compareTo(this.getEtiqueta()) == 0) {
             Nodo aux = this.getListaEnteros().getPrimero();
             while (aux != null) {
-                if (Integer.parseInt((String) aux.getEtiqueta()) % 2 == 0) {
-                    Nodo nodo = new Nodo(aux.getEtiqueta(), aux.getDato());
+                if (Integer.parseInt((String) aux.getDato()) % 2 == 0) {
+                    Nodo nodo = new Nodo(aux.getEtiqueta(), Integer.parseInt((String) aux.getEtiqueta()));
                     pares.insertar(nodo);
                 }
                 aux = aux.getSiguiente();
@@ -417,7 +417,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
                 if (valor == true) {
                     Nodo aux = this.getListaEnteros().getPrimero();
                     while (aux != null) {
-                        if (Integer.parseInt((String) aux.getEtiqueta()) % 2 == 0) {
+                        if ((Integer) aux.getDato() % 2 == 0) {
                             Nodo nodo = new Nodo(aux.getEtiqueta(), aux.getDato());
                             pares.insertar(nodo);
                         }
@@ -436,7 +436,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
                 if (valor == true) {
                     Nodo aux = this.getListaEnteros().getPrimero();
                     while (aux != null) {
-                        if (Integer.parseInt((String) aux.getEtiqueta()) % 2 == 0) {
+                        if ((Integer) aux.getDato() % 2 == 0) {
                             Nodo nodo = new Nodo(aux.getEtiqueta(), aux.getDato());
                             pares.insertar(nodo);
                         }
